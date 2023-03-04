@@ -1,3 +1,6 @@
 [submodule "front-end-mentor-faq-accordion-card"]
 	path = front-end-mentor-faq-accordion-card
 	url = https://github.com/Dripcoding/front-end-mentor-faq-accordion-card.git
+[submodule "front-end-mentor-social-proof"]
+	path = front-end-mentor-social-proof
+	url = https://github.com/Dripcoding/front-end-mentor-social-proof.git
