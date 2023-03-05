@@ -3,33 +3,37 @@
 $container-width: 540px;
 $margin-right: 450px;
 $margin-left: 450px;
+$font-family: 'Josefin Sans';
+$font-style: normal;
 
-// DESKTOP LIGHT
-$font-family-light: 'Josefin Sans';
-$font-style-light: normal;
+// DESKTOP HEADER
+$header-font-weight: 700;
+$header-line-height: 40px;
+$header-font-size: 40px;
+$header-font-color: #FFFFFF;
 
-// DESKTOP LIGHT HEADER
-$header-font-weight-light: 700;
-$header-line-height-light: 40px;
-$header-font-size-light: 40px;
-
-// DESKTOP LIGHT TEXT
-$text-font-weight-light: 400;
-$text-line-height-light: 40px;
-$text-font-size-light: 40px;
+// DESKTOP TEXT
+$text-font-weight: 400;
+$text-line-height: 40px;
+$text-font-size: 40px;
 $text-primary-font-color-light: #9495A5;
 $text-secondary-font-color-light: #494C6B;
 $text-completed-font-color-light: #D1D2DA;
+$text-primary-font-color-light: #C8CBE7;
+$text-secondary-font-color-dark: #767992;
+$text-completed-font-color-dark: #4D5067;
 
-// DESKTOP LIGHT PLACEHOLDER TEXT
-$placeholder-font-weight-light: 400px;
-$placeholder-line-height-light: 18px;
-$placeholder-font-size-light: 18px;
+// DESKTOP PLACEHOLDER TEXT
+$placeholder-font-weight: 400px;
+$placeholder-line-height: 18px;
+$placeholder-font-size: 18px;
 
-// DESKTOP LIGHT SECONDARY TEXT
+// DESKTOP SECONDARY TEXT
 $secondary-font-weight: 700;
-$secondary-font-weight-light: 400px;
+$secondary-font-weight: 400px;
 $secondary-font-size: 14px;
 $secondary-font-line-height: 14px;
-$secondary-font-color: #9495A5;
+$secondary-font-color-light: #9495A5;
 $secondary-selected-font-color: #3A7CFD;
+$secondary-font-color-dark: #5B5E7E;
+
