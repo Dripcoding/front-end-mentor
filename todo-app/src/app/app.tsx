@@ -1,16 +1,14 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
+import Header from '../components/header/header';
+import '../styles/app.scss';
 
-import NxWelcome from './nx-welcome';
+const STYLE_BASE = 'APP_';
 
-export function App() {
-  return (
-    <>
-      <NxWelcome title="todo-app-" />
-
-      <div />
-    </>
-  );
-}
+export const App = (): JSX.Element => {
+	return (
+		<main className={`${STYLE_BASE}container`}>
+			<Header />
+		</main>
+	);
+};
 
 export default App;

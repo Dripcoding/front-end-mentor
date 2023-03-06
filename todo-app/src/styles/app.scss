@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@use './reset.scss';
+@use './palette.scss' as *;
+@use './mixins.scss' as mixins;
+
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+#root {
+    @include mixins.flex(column, center, center);
+}
+
+.APP_container {
+    @include mixins.flex(column, flex-start, center);
+    border: 2px solid red;
+    width: $container-width;
+    margin-right: $margin-right;
+    margin-left: $margin-left;
+    font-family: $font-family;
+    font-style: $font-style;
+    height: 100vh;
+}
