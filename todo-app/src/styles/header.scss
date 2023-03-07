@@ -4,8 +4,16 @@
 .HEADER_todo_header_container {
     @include mixins.flex(row, space-between, flex-start);
     width: $container-width;   
-}
 
-h1 {
-    
+    h1 {
+        font-weight: $header-font-weight;
+        line-height: $header-line-height;
+        font-size: $header-font-size;
+        color: $header-font-color;
+        letter-spacing: $header-letter-spacing;
+    }
+
+    svg {
+        color: #FFF;
+    }
 }

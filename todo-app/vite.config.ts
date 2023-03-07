@@ -1,6 +1,7 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import svgr from 'vite-plugin-svgr';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
@@ -17,20 +18,12 @@ export default defineConfig({
 	},
 
 	plugins: [
+		svgr(),
 		react(),
 		viteTsConfigPaths({
 			root: './',
 		}),
 	],
-
-	// Uncomment this if you are using workers.
-	// worker: {
-	//  plugins: [
-	//    viteTsConfigPaths({
-	//      root: './',
-	//    }),
-	//  ],
-	// },
 
 	test: {
 		globals: true,
