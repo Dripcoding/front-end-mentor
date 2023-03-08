@@ -57,7 +57,8 @@
       "outputs": ["coverage/todo-app-"],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "coverage/todo-app-"
+        "reportsDirectory": "coverage/todo-app-",
+        "jestConfig": "jest.config.js"
       }
     },
     "lint": {
