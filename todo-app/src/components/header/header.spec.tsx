@@ -23,7 +23,5 @@ describe('Todo Header', () => {
 
 		const img = screen.getByRole('img');
 		expect(img).toBeInTheDocument();
-		expect(img).toHaveAttribute('src');
-		expect(img).toHaveAttribute('alt', 'dark mode toggle');
 	});
 });

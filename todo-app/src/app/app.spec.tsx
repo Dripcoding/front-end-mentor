@@ -7,4 +7,9 @@ describe('App', () => {
 		render(<App />);
 		expect(screen.getByTestId('TODO_HEADER_CONTAINER')).toBeInTheDocument();
 	});
+
+	it('should have search bar component', () => {
+		render(<App />);
+		expect(screen.getByTestId('SEARCH_BAR_CONTAINER')).toBeInTheDocument();
+	});
 });
