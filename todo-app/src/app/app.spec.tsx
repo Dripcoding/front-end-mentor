@@ -12,4 +12,9 @@ describe('App', () => {
 		render(<App />);
 		expect(screen.getByTestId('SEARCH_BAR_CONTAINER')).toBeInTheDocument();
 	});
+
+	it('should have footer component', () => {
+		render(<App />);
+		expect(screen.getByTestId('FOOTER')).toBeInTheDocument();
+	});
 });
