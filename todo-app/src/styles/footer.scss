@@ -1,12 +1,10 @@
 @use './palette.scss' as  *;
 @use './mixins.scss' as mixins;
 
-footer {
-    @include mixins.flex(row, center, center);
-
+footer.FOOTER_container {
     height: $footer-height;
-    width: $footer-width;
-    border: 2px solid blue;
+    width: 100%;
+    margin-top: 49px;
     
     p.FOOTER_text {
         color: $secondary-font-color-light;
@@ -15,6 +13,6 @@ footer {
         font-family: $font-family;
         font-style: $font-style;
         line-height: $secondary-font-line-height;
-        margin-top: 49px;
+        text-align: center;
     }
 }
