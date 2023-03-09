@@ -28,9 +28,10 @@ section.SEARCH_BAR_container {
         border: none;
         font-weight: $secondary-font-weight;
         color: $secondary-font-color-light;
+        caret-color: $cursor-primary-color;
         font-size: $secondary-font-size;
         line-height: $secondary-font-line-height;
         width: 156px;
-        height: 18px;
+        height: 24px;
     }
 }
