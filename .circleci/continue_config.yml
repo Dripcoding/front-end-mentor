@@ -1,0 +1,51 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.1.0
+
+# the default pipeline parameters, which will be updated according to
+# the results of the path-filtering orb
+parameters:
+  run-todo-app-job:
+    type: boolean
+    default: false
+
+# here we specify our workflows, most of which are conditionally
+# executed based upon pipeline parameter values. Each workflow calls a
+# specific job defined above, in the jobs section.
+
+# jobs are omited for this purpose
+workflows:
+  # when pipeline parameter, run-design-system-job is true, the
+  # jobs is triggered.
+  run-todo-app-job:
+    when: << pipeline.parameters.run-todo-app-job >>
+    jobs:
+      - install-dependencies
+      - build
+      - unit_tests
+      - visuals
+
+jobs:
+  tests:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+          node-version: '18.15'
+      - run: node --version
+      - run: nx test
+      - run: nx build
+  build:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+          node-version: '18.15'
+      - run: node --version
+      - run: nx test
+      - run: nx build
