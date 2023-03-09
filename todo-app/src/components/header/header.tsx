@@ -10,7 +10,7 @@ const Header = (): JSX.Element => {
 			data-testid='TODO_HEADER_CONTAINER'
 		>
 			<h1>TODO</h1>
-			<MoonLogo />
+			<MoonLogo role='img' />
 		</section>
 	);
 };
