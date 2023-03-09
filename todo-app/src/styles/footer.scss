@@ -1,0 +1,18 @@
+@use './palette.scss' as  *;
+@use './mixins.scss' as mixins;
+
+footer.FOOTER_container {
+    height: $footer-height;
+    width: 100%;
+    margin-top: 49px;
+    
+    p.FOOTER_text {
+        color: $secondary-font-color-light;
+        font-weight: $secondary-font-weight;
+        font-size: $secondary-font-size;
+        font-family: $font-family;
+        font-style: $font-style;
+        line-height: $secondary-font-line-height;
+        text-align: center;
+    }
+}

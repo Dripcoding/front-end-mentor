@@ -39,6 +39,10 @@ $secondary-hover-font-weight: 700;
 $secondary-font-color-dark: #767992;
 $secondary-hover-font-color-dark: #E3E4F1;
 
+// DESKTOP FOOTER
+$footer-width: 179px;
+$footer-height: 14px;
+
 // MOBILE
 $mobile-container-width: 327px;
 $mobile-margin-right: 24px;
@@ -60,16 +64,16 @@ $mobile-placeholder-line-height: 12px;
 $mobile-placeholder-font-size: 12px;
 
 // MOBILE SECONDARY TEXT
-$secondary-font-weight: 400;
-$secondary-font-size: 12px;
-$secondary-font-line-height: 12px;
-$secondary-font-color-light: #9495A5;
-$secondary-selected-font-color: #3A7CFD;
-$secondary-font-color-dark: #5B5E7E;
-$secondary-hover-font-color-light: #494C6B;
-$secondary-hover-font-weight: 700;
-$secondary-font-color-dark: #767992;
-$secondary-hover-font-color-dark: #E3E4F1;
+$mobile-secondary-font-weight: 400;
+$mobile-secondary-font-size: 12px;
+$mobile-secondary-font-line-height: 12px;
+$mobile-secondary-font-color-light: #9495A5;
+$mobile-secondary-selected-font-color: #3A7CFD;
+$mobile-secondary-font-color-dark: #5B5E7E;
+$mobile-secondary-hover-font-color-light: #494C6B;
+$mobile-secondary-hover-font-weight: 700;
+$mobile-secondary-font-color-dark: #767992;
+$mobile-secondary-hover-font-color-dark: #E3E4F1;
 
 // MOBILE TOGGLES
 $mobile-toggle-font-weight: 700;
