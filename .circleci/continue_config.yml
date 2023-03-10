@@ -34,8 +34,8 @@ jobs:
       - checkout
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
-      - node/install:
-          node-version: '18.15'
+      - node/install-packages:
+          pkg-manager: npm
       - run: node --version
       - run: npm install @lhci/cli
       - run: npm build && lhci autorun --config=./lighthouse-mobile.js
