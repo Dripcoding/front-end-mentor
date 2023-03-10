@@ -59,6 +59,5 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: npm
-          node-version: '18.15'
       - run: node --version
       - run: nx build
