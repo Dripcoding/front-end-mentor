@@ -28,9 +28,9 @@ workflows:
 
 jobs:
   lighthouse-mobile:
+    working_directory: todo-app/
     docker:
       - image: cimg/base:stable
-    app_src_directory: 'todo-app'
     steps:
       - checkout
       - browser-tools/install-chrome
@@ -44,9 +44,9 @@ jobs:
           path: /tmp/lighthouseci
           destination: lighthouse-mobile-report
   tests:
+    working_directory: todo-app/
     docker:
       - image: cimg/base:stable
-    app_src_directory: 'todo-app'
     steps:
       - checkout
       - node/install-packages:
@@ -55,9 +55,9 @@ jobs:
       - run: nx test
       - run: nx build
   build:
+    working_directory: todo-app/
     docker:
       - image: cimg/base:stable
-    app_src_directory: 'todo-app'
     steps:
       - checkout
       - node/install-packages:
