@@ -19,7 +19,7 @@ parameters:
 workflows:
   # when pipeline parameter, run-design-system-job is true, the
   # jobs is triggered.
-  run-todo-app-job:
+  todo-app:
     when: << pipeline.parameters.run-todo-app-job >>
     jobs:
       - tests
