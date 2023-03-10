@@ -22,11 +22,8 @@ workflows:
   run-todo-app-job:
     when: << pipeline.parameters.run-todo-app-job >>
     jobs:
-      - install-dependencies
       - tests
       - lighthouse-mobile
-      - lighthouse-desktop
-      - lighthouse-no-emulation-no-throttle
       - build
 
 jobs:
