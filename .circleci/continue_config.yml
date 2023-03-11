@@ -58,7 +58,7 @@ jobs:
       - node/install-packages:
           app-dir: todo-app/
           override-ci-command: npm install
-      - run: npm run test
+      - run: cd todo-app/ && npm run test
   # build:
   #   working_directory: ~/front-end-mentor
   #   executor: node/default
