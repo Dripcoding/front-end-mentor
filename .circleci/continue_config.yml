@@ -23,14 +23,12 @@ workflows:
     when: << pipeline.parameters.run-todo-app-job >>
     jobs:
       - tests:
-          app-dir: "~/project/front-end-mentor/todo-app"
       - lighthouse-mobile:
-          app-dir: "~/project/front-end-mentor/todo-app"
       - build:
-          app-dir: "~/project/front-end-mentor/todo-app"
 
 jobs:
   lighthouse-mobile:
+    workding_directory: "~/project/front-end-mentor/todo-app"
     docker:
       - image: cimg/base:stable
     steps:
@@ -46,6 +44,7 @@ jobs:
           path: /tmp/lighthouseci
           destination: lighthouse-mobile-report
   tests:
+    workding_directory: "~/project/front-end-mentor/todo-app"
     docker:
       - image: cimg/base:stable
     steps:
@@ -56,6 +55,7 @@ jobs:
       - run: nx test
       - run: nx build
   build:
+    workding_directory: "~/project/front-end-mentor/todo-app"
     docker:
       - image: cimg/base:stable
     steps:
