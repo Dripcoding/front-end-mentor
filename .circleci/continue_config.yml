@@ -34,7 +34,7 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: sudo npm install -g npm@latest
+      - run: sudo apt-get install npm
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - node/install-packages:
@@ -53,7 +53,7 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: sudo npm install -g npm@latest
+      - run: sudo apt-get install npm
       - node/install-packages:
           app-dir: todo-app/
           override-ci-command: npm install
@@ -67,9 +67,10 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-          override-ci-command: npm install
+      - run: sudo apt-get install npm
       - run: sudo npm install -g npm@latest
       - node/install-packages:
           app-dir: todo-app/
+          override-ci-command: npm install
       - run: cd todo-app/ &&  node --version
       - run: cd todo-app/ && nx build
