@@ -54,7 +54,8 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: sudo npm install -g npm@latest
+      - node/install
+      - node/install-npm
       - node/install-packages:
           override-ci-command: npm install
       - run: npm run test
