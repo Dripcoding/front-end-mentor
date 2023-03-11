@@ -28,7 +28,6 @@ workflows:
 
 jobs:
   lighthouse-mobile:
-    working_directory: "~/project/front-end-mentor/todo-app"
     docker:
       - image: cimg/base:stable
     steps:
@@ -37,30 +36,31 @@ jobs:
       - browser-tools/install-chromedriver
       - node/install-packages:
           pkg-manager: npm
-      - run: node --version
-      - run: npm install @lhci/cli
-      - run: npm build && lhci autorun --config=./lighthouse-mobile.js
+          app-dir: todo-app/
+      - run: cd todo-app/ && node --version
+      - run: cd todo-app/ && npm install @lhci/cli
+      - run: cd todo-app/ && npm build && lhci autorun --config=./lighthouse-mobile.js
       - store_artifacts:
           path: /tmp/lighthouseci
           destination: lighthouse-mobile-report
   tests:
-    working_directory: "~/project/front-end-mentor/todo-app"
     docker:
       - image: cimg/base:stable
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: npm
-      - run: node --version
-      - run: nx test
-      - run: nx build
+          app-dir: todo-app/
+      - run: cd todo-app/ && node --version
+      - run: cd todo-app/ && nx test
+      - run: cd todo-app/ && nx build
   build:
-    working_directory: "~/project/front-end-mentor/todo-app"
     docker:
       - image: cimg/base:stable
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: npm
-      - run: node --version
-      - run: nx build
+          app-dir: todo-app/
+      - run: cd todo-app/ &&  node --version
+      - run: cd todo-app/ && nx build
