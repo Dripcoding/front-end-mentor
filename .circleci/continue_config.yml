@@ -28,7 +28,7 @@ workflows:
 
 jobs:
   lighthouse-mobile:
-    app-dir: todo-app/
+    working_directory: front-end-mentor/todo-app/
     docker:
       - image: cimg/base:stable
     steps:
@@ -44,7 +44,7 @@ jobs:
           path: /tmp/lighthouseci
           destination: lighthouse-mobile-report
   tests:
-    app-dir: todo-app/
+    working_directory: front-end-mentor/todo-app/
     docker:
       - image: cimg/base:stable
     steps:
@@ -55,7 +55,7 @@ jobs:
       - run: nx test
       - run: nx build
   build:
-    app-dir: todo-app/
+    working_directory: front-end-mentor/todo-app/
     docker:
       - image: cimg/base:stable
     steps:
