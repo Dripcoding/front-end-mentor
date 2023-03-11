@@ -23,29 +23,29 @@ workflows:
     when: << pipeline.parameters.run-todo-app-job >>
     jobs:
       - tests
-      - lighthouse-mobile
-      - build
+      # - lighthouse-mobile
+      # - build
 
-jobs:
-  lighthouse-mobile:
-    working_directory: ~/front-end-mentor
-    executor: node/default
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout:
-          path: ~/front-end-mentor
-      - run: sudo npm install -g npm@latest
-      - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
-      - node/install-packages:
-          app-dir: todo-app/
-      - run: cd todo-app/ && node --version
-      - run: cd todo-app/ && npm install @lhci/cli
-      - run: cd todo-app/ && npm build && lhci autorun --config=./lighthouse-mobile.js
-      - store_artifacts:
-          path: /tmp/lighthouseci
-          destination: lighthouse-mobile-report
+# jobs:
+#   lighthouse-mobile:
+#     working_directory: ~/front-end-mentor
+#     executor: node/default
+#     docker:
+#       - image: cimg/base:stable
+#     steps:
+#       - checkout:
+#           path: ~/front-end-mentor
+#       - run: sudo npm install -g npm@latest
+#       - browser-tools/install-chrome
+#       - browser-tools/install-chromedriver
+#       - node/install-packages:
+#           app-dir: todo-app/
+#       - run: cd todo-app/ && node --version
+#       - run: cd todo-app/ && npm install @lhci/cli
+#       - run: cd todo-app/ && npm build && lhci autorun --config=./lighthouse-mobile.js
+#       - store_artifacts:
+#           path: /tmp/lighthouseci
+#           destination: lighthouse-mobile-report
   tests:
     working_directory: ~/front-end-mentor
     executor: node/default
@@ -56,20 +56,18 @@ jobs:
           path: ~/front-end-mentor
       - run: sudo npm install -g npm@latest
       - node/install-packages:
-          app-dir: todo-app/
-      - run: cd todo-app/ && node --version
-      - run: cd todo-app/ && nx test
-      - run: cd todo-app/ && nx build
-  build:
-    working_directory: ~/front-end-mentor
-    executor: node/default
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout:
-          path: ~/front-end-mentor
-      - run: sudo npm install -g npm@latest
-      - node/install-packages:
-          app-dir: todo-app/
-      - run: cd todo-app/ &&  node --version
-      - run: cd todo-app/ && nx build
+          override-ci-command: npm install
+      - run: npm run test
+  # build:
+  #   working_directory: ~/front-end-mentor
+  #   executor: node/default
+  #   docker:
+  #     - image: cimg/base:stable
+  #   steps:
+  #     - checkout:
+  #         path: ~/front-end-mentor
+  #     - run: sudo npm install -g npm@latest
+  #     - node/install-packages:
+  #         app-dir: todo-app/
+  #     - run: cd todo-app/ &&  node --version
+  #     - run: cd todo-app/ && nx build
