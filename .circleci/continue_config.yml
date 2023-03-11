@@ -9,7 +9,7 @@ orbs:
 parameters:
   run-todo-app-job:
     type: boolean
-    default: false
+    default: true
 
 # here we specify our workflows, most of which are conditionally
 # executed based upon pipeline parameter values. Each workflow calls a
@@ -28,7 +28,7 @@ workflows:
 
 jobs:
   lighthouse-mobile:
-    workding_directory: ~/front-end-mentor/todo-app
+    working_directory: ~/front-end-mentor/todo-app
     docker:
       - image: cimg/base:stable
     steps:
@@ -46,7 +46,7 @@ jobs:
           path: /tmp/lighthouseci
           destination: lighthouse-mobile-report
   tests:
-    workding_directory: ~/front-end-mentor/todo-app
+    working_directory: ~/front-end-mentor/todo-app
     docker:
       - image: cimg/base:stable
     steps:
@@ -59,7 +59,7 @@ jobs:
       - run: cd todo-app/ && nx test
       - run: cd todo-app/ && nx build
   build:
-    workding_directory: ~/front-end-mentor/todo-app
+    working_directory: ~/front-end-mentor/todo-app
     docker:
       - image: cimg/base:stable
     steps:
