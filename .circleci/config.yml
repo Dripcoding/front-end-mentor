@@ -19,7 +19,7 @@ workflows:
             /todo-app/.* run-todo-app-job true 
 
           # Compare changes of the branch with master branch
-          # base-revision: master
+          base-revision: master
 
           # this is the path of the configuration we should trigger once
           # path filtering and pipeline parameter value updates are
