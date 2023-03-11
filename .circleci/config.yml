@@ -16,7 +16,7 @@ workflows:
           # Test which path is updated and set the parameter for continue_config
           name: check-updated-files
           mapping: | 
-            ~.*/front-end-mentor/todo-app/.* run-todo-app-job true 
+            todo-app/.* run-todo-app-job true 
 
           # Compare changes of the branch with master branch
           base-revision: master
