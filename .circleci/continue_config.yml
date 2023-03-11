@@ -27,25 +27,6 @@ workflows:
       # - build
 
 jobs:
-#   lighthouse-mobile:
-#     working_directory: ~/front-end-mentor
-#     executor: node/default
-#     docker:
-#       - image: cimg/base:stable
-#     steps:
-#       - checkout:
-#           path: ~/front-end-mentor
-#       - run: sudo npm install -g npm@latest
-#       - browser-tools/install-chrome
-#       - browser-tools/install-chromedriver
-#       - node/install-packages:
-#           app-dir: todo-app/
-#       - run: cd todo-app/ && node --version
-#       - run: cd todo-app/ && npm install @lhci/cli
-#       - run: cd todo-app/ && npm build && lhci autorun --config=./lighthouse-mobile.js
-#       - store_artifacts:
-#           path: /tmp/lighthouseci
-#           destination: lighthouse-mobile-report
   tests:
     working_directory: ~/front-end-mentor
     executor: node/default
@@ -59,6 +40,28 @@ jobs:
           app-dir: todo-app/
           override-ci-command: npm install
       - run: cd todo-app/ && npm run test
+  lighthouse-mobile:
+    working_directory: ~/front-end-mentor
+    executor: node/default
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout:
+          path: ~/front-end-mentor
+      - node/install
+      - node/install-packages:
+        app-dir: todo-app/
+        override-ci-command: npm install
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - run: cd todo-app/ && node --version
+      - run: cd todo-app/ && npm install @lhci/cli
+      - run: cd todo-app/ && npm build && lhci autorun --config=./lighthouse-mobile.js
+      - store_artifacts:
+          path: /tmp/lighthouseci
+          destination: lighthouse-mobile-report
+    requires:
+      - tests
   # build:
   #   working_directory: ~/front-end-mentor
   #   executor: node/default
