@@ -35,10 +35,10 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: sudo npm install -g npm@latest
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - node/install-packages:
+          install-yarn: true
           app-dir: todo-app/
           override-ci-command: npm install
       - run: cd todo-app/ && node --version
@@ -55,8 +55,8 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: sudo npm install -g npm@latest
       - node/install-packages:
+          install-yarn: true
           app-dir: todo-app/
           override-ci-command: npm install
       - run: cd todo-app/ && node --version
@@ -70,8 +70,8 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: sudo npm install -g npm@latest
       - node/install-packages:
+          install-yarn: true
           app-dir: todo-app/
           override-ci-command: npm install
       - run: cd todo-app/ &&  node --version
