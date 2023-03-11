@@ -28,6 +28,7 @@ workflows:
 
 jobs:
   lighthouse-mobile:
+    app-dir: todo-app/
     docker:
       - image: cimg/base:stable
     steps:
@@ -43,7 +44,7 @@ jobs:
           path: /tmp/lighthouseci
           destination: lighthouse-mobile-report
   tests:
-    working_directory: todo-app/
+    app-dir: todo-app/
     docker:
       - image: cimg/base:stable
     steps:
@@ -54,7 +55,7 @@ jobs:
       - run: nx test
       - run: nx build
   build:
-    working_directory: todo-app/
+    app-dir: todo-app/
     docker:
       - image: cimg/base:stable
     steps:
