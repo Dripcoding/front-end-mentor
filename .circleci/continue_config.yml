@@ -9,7 +9,7 @@ orbs:
 parameters:
   run-todo-app-job:
     type: boolean
-    default: false
+    default: true
 
 # here we specify our workflows, most of which are conditionally
 # executed based upon pipeline parameter values. Each workflow calls a
