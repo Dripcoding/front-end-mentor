@@ -28,7 +28,6 @@ workflows:
 
 jobs:
   lighthouse-mobile:
-    working_directory: todo-app/
     docker:
       - image: cimg/base:stable
     steps:
