@@ -37,13 +37,11 @@ jobs:
           path: ~/front-end-mentor
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
-      - node/install:
-          install-yarn: true
+      - node/install-packages:
           app-dir: todo-app/
-          override-ci-command: yarn install
       - run: cd todo-app/ && node --version
-      - run: cd todo-app/ && yarn install @lhci/cli
-      - run: cd todo-app/ && yarn build && lhci autorun --config=./lighthouse-mobile.js
+      - run: cd todo-app/ && npm install @lhci/cli
+      - run: cd todo-app/ && npm build && lhci autorun --config=./lighthouse-mobile.js
       - store_artifacts:
           path: /tmp/lighthouseci
           destination: lighthouse-mobile-report
@@ -55,10 +53,8 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - node/install:
-          install-yarn: true
+      - node/install-packages:
           app-dir: todo-app/
-          override-ci-command: yarn install
       - run: cd todo-app/ && node --version
       - run: cd todo-app/ && nx test
       - run: cd todo-app/ && nx build
@@ -70,9 +66,7 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - node/install:
-          install-yarn: true
+      - node/install-packages:
           app-dir: todo-app/
-          override-ci-command: yarn install
       - run: cd todo-app/ &&  node --version
       - run: cd todo-app/ && nx build
