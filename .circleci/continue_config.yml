@@ -37,7 +37,6 @@ jobs:
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - node/install-packages:
-          pkg-manager: npm
           app-dir: todo-app/
       - run: cd todo-app/ && node --version
       - run: cd todo-app/ && npm install @lhci/cli
@@ -53,7 +52,6 @@ jobs:
       - checkout:
           path: ~/front-end-mentor
       - node/install-packages:
-          pkg-manager: npm
           app-dir: todo-app/
       - run: cd todo-app/ && node --version
       - run: cd todo-app/ && nx test
@@ -66,7 +64,6 @@ jobs:
       - checkout:
           path: ~/front-end-mentor
       - node/install-packages:
-          pkg-manager: npm
           app-dir: todo-app/
       - run: cd todo-app/ &&  node --version
       - run: cd todo-app/ && nx build
