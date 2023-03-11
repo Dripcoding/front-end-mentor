@@ -29,12 +29,13 @@ workflows:
 jobs:
   lighthouse-mobile:
     working_directory: ~/front-end-mentor
+    executor: node/default
     docker:
       - image: cimg/base:stable
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: sudo apt install npm
+      - run: sudo npm install -g npm@latest
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - node/install-packages:
@@ -48,12 +49,13 @@ jobs:
           destination: lighthouse-mobile-report
   tests:
     working_directory: ~/front-end-mentor
+    executor: node/default
     docker:
       - image: cimg/base:stable
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: sudo apt install npm
+      - run: sudo npm install -g npm@latest
       - node/install-packages:
           app-dir: todo-app/
           override-ci-command: npm install
@@ -62,12 +64,13 @@ jobs:
       - run: cd todo-app/ && nx build
   build:
     working_directory: ~/front-end-mentor
+    executor: node/default
     docker:
       - image: cimg/base:stable
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: sudo apt install npm
+      - run: sudo npm install -g npm@latest
       - node/install-packages:
           app-dir: todo-app/
           override-ci-command: npm install
