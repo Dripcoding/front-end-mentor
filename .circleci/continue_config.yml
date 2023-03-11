@@ -55,8 +55,8 @@ jobs:
       - checkout:
           path: ~/front-end-mentor
       - node/install
-      - node/install-npm
       - node/install-packages:
+          app-dir: todo-app/
           override-ci-command: npm install
       - run: npm run test
   # build:
