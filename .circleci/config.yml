@@ -16,7 +16,7 @@ workflows:
           # Test which path is updated and set the parameter for continue_config
           name: check-updated-files
           mapping: | 
-            ~/project/todo-app/.* run-todo-app-job true 
+            /todo-app/.* run-todo-app-job true 
 
           # Compare changes of the branch with master branch
           base-revision: master
@@ -26,6 +26,3 @@ workflows:
           # complete. In this case, we are using the parent dynamic
           # configuration itself.
           config-path: .circleci/continue_config.yml
-
-          steps:
-            - run: 'pwd'
