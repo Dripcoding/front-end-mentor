@@ -34,10 +34,12 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
+      - run: sudo npm install -g npm@latest
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - node/install-packages:
           app-dir: todo-app/
+          override-ci-command: npm install
       - run: cd todo-app/ && node --version
       - run: cd todo-app/ && npm install @lhci/cli
       - run: cd todo-app/ && npm build && lhci autorun --config=./lighthouse-mobile.js
@@ -51,8 +53,10 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
+      - run: sudo npm install -g npm@latest
       - node/install-packages:
           app-dir: todo-app/
+          override-ci-command: npm install
       - run: cd todo-app/ && node --version
       - run: cd todo-app/ && nx test
       - run: cd todo-app/ && nx build
@@ -63,6 +67,8 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
+          override-ci-command: npm install
+      - run: sudo npm install -g npm@latest
       - node/install-packages:
           app-dir: todo-app/
       - run: cd todo-app/ &&  node --version
