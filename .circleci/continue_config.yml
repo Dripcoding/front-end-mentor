@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@5.1.0
+  nx: nrwl/nx@1.6.1
   browser-tools: circleci/browser-tools@1.4.1
 
 # the default pipeline parameters, which will be updated according to
@@ -31,6 +31,8 @@ jobs:
     executor: node/default
     docker:
       - image: cimg/base:stable
+    environment:
+      MAIN_BRANCH_NAME: master
     steps:
       - checkout:
           path: ~/front-end-mentor
@@ -38,12 +40,19 @@ jobs:
       - node/install-packages:
           app-dir: todo-app/
           override-ci-command: npm install
+      - nx/set-shas:
+          allow-on-hold-workflow: true
+          error-on-no-successful-workflow: true
+          main-branch-name: master
+          workflow-name: nx-pipeline
       - run: cd todo-app/ && nx test
   lighthouse-mobile:
     working_directory: ~/front-end-mentor
     executor: node/default
     docker:
       - image: cimg/base:stable
+    environment:
+      MAIN_BRANCH_NAME: master
     steps:
       - checkout:
           path: ~/front-end-mentor
@@ -51,6 +60,11 @@ jobs:
       - node/install-packages:
           app-dir: todo-app/
           override-ci-command: npm install
+      - nx/set-shas:
+          allow-on-hold-workflow: true
+          error-on-no-successful-workflow: true
+          main-branch-name: master
+          workflow-name: nx-pipeline
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - run: cd todo-app/ && node --version
