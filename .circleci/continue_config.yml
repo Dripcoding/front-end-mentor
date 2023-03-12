@@ -29,7 +29,6 @@ workflows:
 jobs:
   tests:
     working_directory: ~/front-end-mentor
-    executor: node/default
     docker:
       - image: cimg/base:stable
     environment:
@@ -46,7 +45,6 @@ jobs:
       - run: cd todo-app/ && yarn nx affected --target=test --base=$NX_BASE
   lighthouse-mobile:
     working_directory: ~/front-end-mentor
-    executor: node/default
     docker:
       - image: cimg/base:stable
     environment:
@@ -70,7 +68,6 @@ jobs:
           destination: lighthouse-mobile-report
   build:
     working_directory: ~/front-end-mentor
-    executor: node/default
     docker:
       - image: cimg/base:stable
     steps:
