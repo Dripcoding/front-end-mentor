@@ -9,6 +9,9 @@ module.exports = {
 			startServerCommand: 'node server.js',
 			settings: {
 				formFactor: 'desktop',
+				screenEmulation: {
+					disabled: true,
+				},
 			},
 		},
 		upload: {
