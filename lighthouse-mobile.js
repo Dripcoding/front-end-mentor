@@ -7,6 +7,9 @@ module.exports = {
 		collect: {
 			startServerCommand: 'node server.js',
 			numberOfRuns: 5,
+			settings: {
+				formFactor: 'mobile',
+			},
 		},
 		upload: {
 			target: 'filesystem',
