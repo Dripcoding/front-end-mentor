@@ -24,8 +24,8 @@ workflows:
     jobs:
       - tests
       - lighthouse-mobile:
-        - requires:
-          - tests
+        requires:
+        - tests
       # - build
 
 jobs:
