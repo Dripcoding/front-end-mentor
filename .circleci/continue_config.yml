@@ -30,7 +30,7 @@ jobs:
   tests:
     working_directory: ~/front-end-mentor
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:18.15.0-browsers
     environment:
       MAIN_BRANCH_NAME: master
     steps:
@@ -46,7 +46,7 @@ jobs:
   lighthouse-mobile:
     working_directory: ~/front-end-mentor
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:18.15.0-browsers
     environment:
       MAIN_BRANCH_NAME: master
     steps:
@@ -69,7 +69,7 @@ jobs:
   build:
     working_directory: ~/front-end-mentor
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:18.15.0-browsers
     steps:
       - checkout:
           path: ~/front-end-mentor
