@@ -26,6 +26,10 @@ workflows:
       - lighthouse-mobile:
         requires:
          - tests
+      - build:
+        requires:
+          - tests
+          - lighthouse-mobile
 
 jobs:
   tests:
@@ -75,16 +79,22 @@ jobs:
       - store_artifacts:
           path: /tmp/lighthouseci
           destination: lighthouse-mobile-report
-  # build:
-  #   working_directory: ~/front-end-mentor
-  #   executor: node/default
-  #   docker:
-  #     - image: cimg/base:stable
-  #   steps:
-  #     - checkout:
-  #         path: ~/front-end-mentor
-  #     - run: sudo npm install -g npm@latest
-  #     - node/install-packages:
-  #         app-dir: todo-app/
-  #     - run: cd todo-app/ &&  node --version
-  #     - run: cd todo-app/ && nx build
+  build:
+    working_directory: ~/front-end-mentor
+    executor: node/default
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout:
+          path: ~/front-end-mentor
+      - node/install
+      - node/install-packages:
+          app-dir: todo-app/
+          override-ci-command: npm install
+      - nx/set-shas:
+          allow-on-hold-workflow: true
+          error-on-no-successful-workflow: true
+          main-branch-name: master
+          workflow-name: nx-pipeline
+      - run: cd todo-app/ &&  node --version
+      - run: cd todo-app/ && nx build
