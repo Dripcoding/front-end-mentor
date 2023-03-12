@@ -34,6 +34,7 @@ workflows:
           requires:
             - tests
             - build
+            - lighthouse-mobile
 
 jobs:
   tests:
