@@ -37,16 +37,13 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - node/install
-      - node/install-packages:
-          app-dir: todo-app/
-          override-ci-command: npm install
+      - run: cd todo-app/ && yarn install --froze-lockfile
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
           main-branch-name: master
           workflow-name: nx-pipeline
-      - run: cd todo-app/ && nx test
+      - run: cd todo-app/ && yarn nx affected --target=test --base=$NX_BASE
   lighthouse-mobile:
     working_directory: ~/front-end-mentor
     executor: node/default
@@ -57,10 +54,7 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - node/install
-      - node/install-packages:
-          app-dir: todo-app/
-          override-ci-command: npm install
+      - run: cd todo-app/ && yarn install --froze-lockfile
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
@@ -70,7 +64,7 @@ jobs:
       - browser-tools/install-chromedriver
       - run: cd todo-app/ && node --version
       - run: cd todo-app/ && npm install @lhci/cli
-      - run: cd todo-app/ && nx build && lhci autorun --config=./lighthouse-mobile.js
+      - run: cd todo-app/ && yarn nx affected --target=build --base=$NX_BASE && lhci autorun --config=./lighthouse-mobile.js
       - store_artifacts:
           path: /tmp/lighthouseci
           destination: lighthouse-mobile-report
@@ -82,14 +76,11 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - node/install
-      - node/install-packages:
-          app-dir: todo-app/
-          override-ci-command: npm install
+      - run: cd todo-app/ && yarn install --froze-lockfile
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
           main-branch-name: master
           workflow-name: nx-pipeline
       - run: cd todo-app/ &&  node --version
-      - run: cd todo-app/ && nx build
+      - run: cd todo-app/ && yarn nx affected --target=build --base=$NX_BASE
