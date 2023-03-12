@@ -23,13 +23,8 @@ workflows:
     when: << pipeline.parameters.run-todo-app-job >>
     jobs:
       - tests
-      - lighthouse-mobile:
-        requires:
-         - tests
-      - build:
-        requires:
-          - tests
-          - lighthouse-mobile
+      - lighthouse-mobile
+      - build
 
 jobs:
   tests:
