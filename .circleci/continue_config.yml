@@ -67,8 +67,7 @@ jobs:
       - browser-tools/install-chromedriver
       - run: cd todo-app/ && node --version
       - run: cd todo-app/ && yarn global add @lhci/cli
-      - run: cd todo-app/ && yarn nx affected --target=build --base=$NX_BASE 
-      - run: lhci autorun --collect.staticDistDir='./todo-app/dist' --config=./lighthouse-mobile.js
+      - run: cd todo-app/ && yarn nx affected --target=build --base=$NX_BASE && lhci autorun --collect.staticDistDir='./todo-app/dist' --config=./lighthouse-mobile.js
       - store_artifacts:
           path: /tmp/lighthouseci
           destination: lighthouse-mobile-report
