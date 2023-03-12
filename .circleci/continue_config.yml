@@ -38,7 +38,7 @@ jobs:
       - node/install-packages:
           app-dir: todo-app/
           override-ci-command: npm install
-      - run: cd todo-app/ && npm run test
+      - run: cd todo-app/ && nx test
   lighthouse-mobile:
     working_directory: ~/front-end-mentor
     executor: node/default
@@ -55,7 +55,7 @@ jobs:
       - browser-tools/install-chromedriver
       - run: cd todo-app/ && node --version
       - run: cd todo-app/ && npm install @lhci/cli
-      - run: cd todo-app/ && npm build && lhci autorun --config=./lighthouse-mobile.js
+      - run: cd todo-app/ && nx build && lhci autorun --config=./lighthouse-mobile.js
       - store_artifacts:
           path: /tmp/lighthouseci
           destination: lighthouse-mobile-report
