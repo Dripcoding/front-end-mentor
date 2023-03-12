@@ -24,7 +24,6 @@ workflows:
     jobs:
       - tests
       - lighthouse-mobile
-      # - build
 
 jobs:
   tests:
@@ -50,8 +49,8 @@ jobs:
           path: ~/front-end-mentor
       - node/install
       - node/install-packages:
-        app-dir: todo-app/
-        override-ci-command: npm install
+          app-dir: todo-app/
+          override-ci-command: npm install
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - run: cd todo-app/ && node --version
