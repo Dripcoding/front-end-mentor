@@ -8,7 +8,7 @@ module.exports = {
 			numberOfRuns: 5,
 			startServerCommand: 'node server.js',
 			settings: {
-				formFactor: 'desktop',
+				emulatedFormFactor: 'desktop',
 			},
 		},
 		upload: {
