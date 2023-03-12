@@ -66,7 +66,7 @@ jobs:
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - run: cd todo-app/ && node --version
-      # - run: cd todo-app/ && yarn install @lhci/cli
+      - run: cd todo-app/ && yarn install @lhci/cli --save-dev
       - run: cd todo-app/ && yarn nx affected --target=build --base=$NX_BASE && lhci autorun --config=./lighthouse-mobile.js
       - store_artifacts:
           path: /tmp/lighthouseci
