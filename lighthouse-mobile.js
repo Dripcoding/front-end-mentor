@@ -5,7 +5,6 @@ module.exports = {
 			checks: ['githubToken'],
 		},
 		collect: {
-			staticDistDir: './dist',
 			startServerCommand: 'node server.js',
 			numberOfRuns: 5,
 		},
