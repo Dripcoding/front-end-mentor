@@ -1,0 +1,39 @@
+@use './palette.scss' as *;
+@use './mixins.scss' as mixins;
+
+section.TODO_CONTROLS_container {
+    @include mixins.flex(row, space-between, center);
+    background-color: #FFF;
+    border-radius: 4px;
+    margin-top: 40px;
+    padding: 16px 24px 20px 24px;
+    width: $container-width;
+    height: 64px;
+
+    button, span {
+        border: none;
+        background: none;
+        font-family: inherit;
+        font-size: $secondary-font-size;
+        font-weight: $secondary-font-weight-400;
+        line-height: $secondary-font-line-height;
+        color: $secondary-font-color-light;
+    }
+
+    button:hover {
+        color: $secondary-hover-font-color-light;
+    }
+
+    .TODO_CONTROLS_toggles_container {
+        @include mixins.flex('row', 'space-evenly', center);
+
+        button {
+            font-weight: $secondary-font-weight;
+        }
+
+        button:hover {
+            color: $secondary-hover-font-color-light;
+            font-weight: $secondary-font-weight;
+        }
+    }
+}
