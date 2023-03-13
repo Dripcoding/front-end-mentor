@@ -1,0 +1,29 @@
+@use './palette.scss' as *;
+@use './mixins.scss' as mixins;
+
+div.TODO_ITEM_container {
+	@include mixins.flex(row, flex-start, center);
+	border-bottom: 1px solid $divider-color;
+	padding: 20px 24px 20px 24px;
+	width: inherit;
+
+	div.TODO_ITEM_radio_btn_container {
+		height: 24px;
+		width: 24px;
+		margin-right: 24px;
+	}
+
+	.TODO_ITEM_radio_btn {
+		border: 1px solid #e3e4f1;
+		border-radius: 50%;
+		height: 24px;
+		width: 24px;
+	}
+
+	span {
+		font-size: $text-font-size;
+		font-weight: $text-font-weight;
+		color: $text-primary-font-color-light;
+		line-height: $text-line-height;
+	}
+}
