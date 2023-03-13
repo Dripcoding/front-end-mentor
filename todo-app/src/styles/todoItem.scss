@@ -19,4 +19,11 @@ div.TODO_ITEM_container {
 		height: 24px;
 		width: 24px;
 	}
+
+	span {
+		font-size: $text-font-size;
+		font-weight: $text-font-weight;
+		color: $text-primary-font-color-light;
+		line-height: $text-line-height;
+	}
 }
