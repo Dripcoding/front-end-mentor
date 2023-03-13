@@ -13,6 +13,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.11.0",
     "@nrwl/cypress": "15.8.5",
     "@nrwl/eslint-plugin-nx": "15.8.5",
     "@nrwl/js": "15.8.5",
