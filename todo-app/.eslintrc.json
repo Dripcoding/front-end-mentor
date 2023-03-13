@@ -3,6 +3,7 @@
   "root": true,
   "ignorePatterns": ["!**/*"],
   "plugins": ["@nrwl/nx"],
+  "parser": "@typescript-eslint/parser",
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
