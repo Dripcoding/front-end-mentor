@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+import TodoItem from '../todoItem/todoItem';
 import TodoControls from '../todoControls/todoControls';
 import '../../styles/todos.scss';
 
@@ -10,8 +12,8 @@ const Todos = (): JSX.Element => {
 	];
 	return (
 		<section className={`${STYLE_BASE}container`} data-testid='TODOS_CONTAINER'>
-			{todos.map((todo, idx) => {
-				return <div>{todo.value}</div>;
+			{todos.map((todo) => {
+				return <TodoItem key={uuidv4()} todo={todo} />;
 			})}
 			<TodoControls />
 		</section>

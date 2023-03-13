@@ -23,7 +23,6 @@ html {
 
 .APP_container {
     @include mixins.flex(column, flex-start, center);
-    border: 2px solid red;
     width: $container-width;
     margin-right: $margin-right;
     margin-left: $margin-left;

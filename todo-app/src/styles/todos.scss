@@ -1,2 +1,16 @@
 @use './palette.scss' as *;
 @use './mixins.scss' as mixins;
+
+section.TODOS_container {
+    @include mixins.flex(column, space-between, center);
+    background-color: #FFF;
+    border-radius: 4px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    margin-top: 24px;
+    width: $container-width;
+    min-height: $container-min-height;
+
+    .TODOS_todo_item {
+        
+    }
+}

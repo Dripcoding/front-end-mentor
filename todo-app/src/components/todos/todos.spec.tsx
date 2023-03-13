@@ -10,6 +10,14 @@ describe('Todos', () => {
 		expect(screen.getByTestId('TODOS_CONTAINER')).toBeInTheDocument();
 	});
 
+	it('should render TodoItems', () => {
+		render(<Todos />);
+
+		const todos = screen.getAllByTestId('TODO_ITEM_CONTAINER');
+		expect(todos).not.toBeNull();
+		expect(todos.length).toBe(2);
+	});
+
 	it('should renders TodoControls', () => {
 		render(<Todos />);
 
