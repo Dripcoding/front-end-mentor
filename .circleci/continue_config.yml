@@ -52,7 +52,7 @@ jobs:
           error-on-no-successful-workflow: true
           main-branch-name: master
           workflow-name: nx-pipeline
-      - run: cd todo-app/ && yarn nx affected --target=test --base=main --head=HEAD
+      - run: cd todo-app/ && yarn nx affected --target=test --base=master --head=HEAD
   lighthouse-mobile:
     working_directory: ~/front-end-mentor
     docker:
@@ -115,4 +115,4 @@ jobs:
           main-branch-name: master
           workflow-name: nx-pipeline
       - run: cd todo-app/ &&  node --version
-      - run: cd todo-app/ && yarn nx affected --target=build --base=maser --head=HEAD
+      - run: cd todo-app/ && yarn nx affected --target=build --base=master --head=HEAD
