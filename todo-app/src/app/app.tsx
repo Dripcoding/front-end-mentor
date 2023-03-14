@@ -1,3 +1,4 @@
+import { TodoProvider } from '../context/context';
 import Header from '../components/header/header';
 import SearchBar from '../components/searchBar/searchBar';
 import Todos from '../components/todos/todos';
@@ -8,12 +9,14 @@ const STYLE_BASE = 'APP_';
 
 export const App = (): JSX.Element => {
 	return (
-		<main className={`${STYLE_BASE}container`}>
-			<Header />
-			<SearchBar />
-			<Todos />
-			<Footer />
-		</main>
+		<TodoProvider>
+			<main className={`${STYLE_BASE}container`}>
+				<Header />
+				<SearchBar />
+				<Todos />
+				<Footer />
+			</main>
+		</TodoProvider>
 	);
 };
 

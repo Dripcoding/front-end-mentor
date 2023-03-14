@@ -1,11 +1,7 @@
+import { ITodoItem } from 'context/context';
 import '../../styles/todoItem.scss';
 
 const STYLE_BASE = 'TODO_ITEM_';
-
-interface ITodoItem {
-	id: number;
-	value: string;
-}
 
 interface ITodoItemProps {
 	todo: ITodoItem;

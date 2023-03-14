@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { TodoContext } from 'context/context';
 import TodoItem from '../todoItem/todoItem';
 import TodoControls from '../todoControls/todoControls';
 import '../../styles/todos.scss';
@@ -6,10 +8,8 @@ import '../../styles/todos.scss';
 const STYLE_BASE = 'TODOS_';
 
 const Todos = (): JSX.Element => {
-	const todos = [
-		{ id: 1, value: 'walk dog' },
-		{ id: 2, value: 'do homework' },
-	];
+	const { todos } = useContext(TodoContext);
+
 	return (
 		<section className={`${STYLE_BASE}container`} data-testid='TODOS_CONTAINER'>
 			{todos.map((todo) => {
