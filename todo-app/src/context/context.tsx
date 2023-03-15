@@ -29,7 +29,7 @@ export const TodoProvider = ({
 	const [theme, setTheme] = useState(initialState.theme);
 
 	return (
-		<TodoContext.Provider value={{ todos, theme }}>
+		<TodoContext.Provider value={{ todos, theme, setTodos }}>
 			{children}
 		</TodoContext.Provider>
 	);
