@@ -14,6 +14,7 @@ const initialState = {
 	todos: [
 		{ id: 1, value: 'finish homework' },
 		{ id: 2, value: 'walk dog' },
+		{ id: 3, value: 'recycle' },
 	],
 	theme: 'light',
 };
