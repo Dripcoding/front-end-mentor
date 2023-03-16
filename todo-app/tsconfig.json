@@ -14,10 +14,11 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": "src",
 		"jsx": "react-jsx",
-		"allowJs": true,
+		"allowJs": false,
 		"esModuleInterop": false,
 		"allowSyntheticDefaultImports": true,
-		"strict": false,
+		"noImplicitAny": false,
+		"strict": true,
 		"types": ["vite/client", "vitest"],
 		"paths": {
 			"react": ["./node_modules/@types/react"]

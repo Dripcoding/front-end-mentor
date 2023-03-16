@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import {
 	DndContext,
@@ -11,12 +11,11 @@ import {
 } from '@dnd-kit/core';
 import {
 	rectSortingStrategy,
-	rectSwappingStrategy,
 	SortableContext,
 	sortableKeyboardCoordinates,
 	arrayMove as dndKitArrayMove,
 } from '@dnd-kit/sortable';
-import { TodoContext } from 'context/context';
+import { ITodoItem, TodoContext } from 'context/context';
 import TodoItem from '../todoItem/todoItem';
 import TodoControls from '../todoControls/todoControls';
 import '../../styles/todos.scss';
@@ -24,9 +23,8 @@ import '../../styles/todos.scss';
 const STYLE_BASE = 'TODOS_';
 
 const Todos = (): JSX.Element => {
-	const { todos, setTodos } = useContext(TodoContext);
+	const { todos, updateTodos } = useContext(TodoContext);
 	const { setNodeRef } = useDroppable({ id: `${uuidv4()}` });
-	const [activeId, setActiveId] = useState(null);
 
 	const sensors = useSensors(
 		useSensor(MouseSensor),
@@ -36,17 +34,16 @@ const Todos = (): JSX.Element => {
 		})
 	);
 
-	const arrayMove = (array, oldIndex, newIndex) => {
+	const arrayMove = (
+		array: ITodoItem[],
+		oldIndex: number,
+		newIndex: number
+	): ITodoItem[] => {
 		return dndKitArrayMove(array, oldIndex, newIndex);
 	};
 
-	const handleDragStart = ({ active }) => setActiveId(active.id);
-
-	const handleDragCancel = () => setActiveId(null);
-
 	const handleDragEnd = ({ active, over }) => {
 		if (!over) {
-			setActiveId(null);
 			return;
 		}
 
@@ -56,36 +53,19 @@ const Todos = (): JSX.Element => {
 			const activeIndex = active.data.current.sortable.index;
 			const overIndex = over.data.current.sortable.index;
 
-			setTodos((todos) => {
-				let newItems;
-				if (activeContainer === overContainer) {
-					// newItems = {
-					// 	...itemGroups,
-					// 	[overContainer]: arrayMove(
-					// 		itemGroups[overContainer],
-					// 		activeIndex,
-					// 		overIndex
-					// 	),
-					// };
+			let calculated;
+			if (activeContainer === overContainer) {
+				calculated = arrayMove(todos, activeIndex, overIndex);
+			} else {
+				calculated = todos;
+			}
 
-					newItems = arrayMove(todos, activeIndex, overIndex);
-				}
-
-				return newItems;
-			});
+			updateTodos(calculated);
 		}
-
-		setActiveId(null);
 	};
 
 	return (
-		<DndContext
-			sensors={sensors}
-			onDragStart={handleDragStart}
-			onDragCancel={handleDragCancel}
-			// onDragOver={handleDragOver}
-			onDragEnd={handleDragEnd}
-		>
+		<DndContext sensors={sensors} onDragEnd={handleDragEnd}>
 			<SortableContext items={todos} strategy={rectSortingStrategy}>
 				<section
 					className={`${STYLE_BASE}container`}
