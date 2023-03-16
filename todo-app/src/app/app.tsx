@@ -1,6 +1,6 @@
 import { TodoProvider } from '../context/context';
 import Header from '../components/header/header';
-import SearchBar from '../components/searchBar/searchBar';
+import CreateTodoBar from 'components/createTodoBar/createTodoBar';
 import Todos from '../components/todos/todos';
 import Footer from '../components/footer/footer';
 import '../styles/app.scss';
@@ -12,7 +12,7 @@ export const App = (): JSX.Element => {
 		<TodoProvider>
 			<main className={`${STYLE_BASE}container`}>
 				<Header />
-				<SearchBar />
+				<CreateTodoBar />
 				<Todos />
 				<Footer />
 			</main>
