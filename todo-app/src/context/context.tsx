@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useMemo, useCallback } from 'react';
 
 export interface ITodoItem {
 	id: number;
@@ -8,17 +8,25 @@ export interface ITodoItem {
 export interface ITodoState {
 	todos: ITodoItem[];
 	theme: string;
+	updateTodos: (todos: ITodoItem[]) => void;
+	changeTheme: (theme: string) => void;
 }
 
-const initialState = {
+const initialState: ITodoState = {
 	todos: [
 		{ id: 1, value: 'finish homework' },
 		{ id: 2, value: 'walk dog' },
 	],
 	theme: 'light',
+	updateTodos: (todos) => {
+		return;
+	},
+	changeTheme: (theme) => {
+		return;
+	},
 };
 
-export const TodoContext = createContext<ITodoState>(initialState);
+export const TodoContext = createContext(initialState);
 
 export const TodoProvider = ({
 	children,
@@ -28,9 +36,24 @@ export const TodoProvider = ({
 	const [todos, setTodos] = useState(initialState.todos);
 	const [theme, setTheme] = useState(initialState.theme);
 
-	return (
-		<TodoContext.Provider value={{ todos, theme }}>
-			{children}
-		</TodoContext.Provider>
+	const updateTodos = useCallback(
+		(todos: ITodoItem[]) => {
+			setTodos(todos);
+		},
+		[setTodos]
 	);
+
+	const changeTheme = useCallback(
+		(theme: string) => {
+			setTheme(theme);
+		},
+		[setTheme]
+	);
+
+	const values = useMemo(
+		() => ({ todos, theme, updateTodos, changeTheme }),
+		[todos, theme, updateTodos, changeTheme]
+	);
+
+	return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>;
 };
