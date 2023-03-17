@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import {
 	DndContext,
@@ -15,7 +14,7 @@ import {
 	sortableKeyboardCoordinates,
 	arrayMove as dndKitArrayMove,
 } from '@dnd-kit/sortable';
-import { ITodoItem, TodoContext } from 'context/context';
+import { ITodoItem, useTodo } from 'context/context';
 import TodoItem from '../todoItem/todoItem';
 import TodoControls from '../todoControls/todoControls';
 import '../../styles/todos.scss';
@@ -23,7 +22,7 @@ import '../../styles/todos.scss';
 const STYLE_BASE = 'TODOS_';
 
 const Todos = (): JSX.Element => {
-	const { todos, updateTodos } = useContext(TodoContext);
+	const { todos, updateTodos } = useTodo();
 	const { setNodeRef } = useDroppable({ id: `${uuidv4()}` });
 
 	const sensors = useSensors(

@@ -1,19 +1,22 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
+import { v4 as uuidv4 } from 'uuid';
 
 import TodoItem from './todoItem';
 
 describe('TodoItem', () => {
 	it('should render correctly', () => {
-		const todo = { id: 0, value: 'walk dog' };
+		const todo = { id: uuidv4(), value: 'walk dog' };
 		const key = 'exampleKey';
 		render(<TodoItem todo={todo} key={key} />);
 
-		expect(screen.getByTestId('TODO_ITEM_CONTAINER')).toBeInTheDocument();
+		const container = screen.getByTestId('TODO_ITEM_CONTAINER');
+		expect(container).toBeInTheDocument();
+		expect(container).toHaveTextContent('walk dog');
 	});
 
 	it('should render todo value', () => {
-		const todo = { id: 0, value: 'walk dog' };
+		const todo = { id: uuidv4(), value: 'walk dog' };
 		const key = 'exampleKey';
 		render(<TodoItem todo={todo} key={key} />);
 
@@ -23,7 +26,7 @@ describe('TodoItem', () => {
 	});
 
 	it('should render todo item toggle', () => {
-		const todo = { id: 0, value: 'walk dog' };
+		const todo = { id: uuidv4(), value: 'walk dog' };
 		const key = 'exampleKey';
 		render(<TodoItem todo={todo} key={key} />);
 
