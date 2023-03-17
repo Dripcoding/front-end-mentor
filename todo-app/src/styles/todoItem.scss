@@ -18,6 +18,11 @@ div.TODO_ITEM_container {
 		border-radius: 50%;
 		height: 24px;
 		width: 24px;
+
+		&.TODO_ITEM_radio_btn_pressed {
+			border: 2px solid red;
+			// todo: define completed styles here...
+		}
 	}
 
 	span {

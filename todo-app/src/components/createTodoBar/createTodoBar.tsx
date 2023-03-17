@@ -17,7 +17,7 @@ const CreateTodoBar = (): JSX.Element => {
 		e.preventDefault();
 		if (newTodo !== '') {
 			setNewTodo('');
-			addTodo({ id: uuidv4(), value: newTodo });
+			addTodo({ id: uuidv4(), value: newTodo, completed: false });
 		}
 	};
 

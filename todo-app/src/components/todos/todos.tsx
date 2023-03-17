@@ -3,6 +3,7 @@ import {
 	DndContext,
 	KeyboardSensor,
 	MouseSensor,
+	PointerSensor,
 	TouchSensor,
 	useDroppable,
 	useSensor,
@@ -26,7 +27,8 @@ const Todos = (): JSX.Element => {
 	const { setNodeRef } = useDroppable({ id: `${uuidv4()}` });
 
 	const sensors = useSensors(
-		useSensor(MouseSensor),
+		useSensor(MouseSensor, { activationConstraint: { distance: 10 } }),
+		useSensor(PointerSensor, { activationConstraint: { distance: 10 } }),
 		useSensor(TouchSensor),
 		useSensor(KeyboardSensor, {
 			coordinateGetter: sortableKeyboardCoordinates,
