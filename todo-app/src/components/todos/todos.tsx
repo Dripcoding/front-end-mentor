@@ -15,6 +15,7 @@ import {
 	sortableKeyboardCoordinates,
 	arrayMove as dndKitArrayMove,
 } from '@dnd-kit/sortable';
+import { useState } from 'react';
 import { ITodoItem, useTodo } from 'context/context';
 import TodoItem from '../todoItem/todoItem';
 import TodoControls from '../todoControls/todoControls';
@@ -25,6 +26,7 @@ const STYLE_BASE = 'TODOS_';
 const Todos = (): JSX.Element => {
 	const { todos, updateTodos, completeTodo } = useTodo();
 	const { setNodeRef } = useDroppable({ id: `${uuidv4()}` });
+	const activeCount = todos.filter((todo) => !todo.completed).length;
 
 	const sensors = useSensors(
 		useSensor(MouseSensor, { activationConstraint: { distance: 10 } }),
@@ -82,7 +84,7 @@ const Todos = (): JSX.Element => {
 							/>
 						);
 					})}
-					<TodoControls />
+					<TodoControls activeCount={activeCount} />
 				</section>
 			</SortableContext>
 		</DndContext>
