@@ -108,7 +108,14 @@ export const TodoProvider = ({ children }): JSX.Element => {
 	);
 
 	const values = useMemo(
-		() => ({ todos, theme, addTodo, completeTodo, updateTodos, changeTheme }),
+		() => ({
+			todos,
+			theme,
+			addTodo,
+			completeTodo,
+			updateTodos,
+			changeTheme,
+		}),
 		[todos, theme, addTodo, completeTodo, updateTodos, changeTheme]
 	);
 

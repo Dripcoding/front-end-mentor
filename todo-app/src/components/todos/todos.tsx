@@ -15,18 +15,27 @@ import {
 	sortableKeyboardCoordinates,
 	arrayMove as dndKitArrayMove,
 } from '@dnd-kit/sortable';
-import { useState } from 'react';
 import { ITodoItem, useTodo } from 'context/context';
 import TodoItem from '../todoItem/todoItem';
 import TodoControls from '../todoControls/todoControls';
 import '../../styles/todos.scss';
+import { useState } from 'react';
 
 const STYLE_BASE = 'TODOS_';
+
+export const filterStrategy = {
+	ALL: (todos: ITodoItem[]) => todos,
+	ACTIVE: (todos: ITodoItem[]) => todos.filter((todo) => !todo.completed),
+	COMPLETED: (todos: ITodoItem[]) => todos.filter((todo) => todo.completed),
+};
 
 const Todos = (): JSX.Element => {
 	const { todos, updateTodos, completeTodo } = useTodo();
 	const { setNodeRef } = useDroppable({ id: `${uuidv4()}` });
+	const [filter, setFilter] = useState('ALL');
+
 	const activeCount = todos.filter((todo) => !todo.completed).length;
+	const filteredTodos = filterStrategy[filter](todos);
 
 	const sensors = useSensors(
 		useSensor(MouseSensor, { activationConstraint: { distance: 10 } }),
@@ -75,7 +84,7 @@ const Todos = (): JSX.Element => {
 					data-testid='TODOS_CONTAINER'
 					ref={setNodeRef}
 				>
-					{todos.map((todo) => {
+					{filteredTodos.map((todo) => {
 						return (
 							<TodoItem
 								key={uuidv4()}
@@ -84,7 +93,7 @@ const Todos = (): JSX.Element => {
 							/>
 						);
 					})}
-					<TodoControls activeCount={activeCount} />
+					<TodoControls activeCount={activeCount} changeFilter={setFilter} />
 				</section>
 			</SortableContext>
 		</DndContext>

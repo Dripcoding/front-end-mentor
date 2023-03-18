@@ -68,5 +68,60 @@ describe('App', () => {
 				expect(screen.getByText('5 items left')).toBeInTheDocument();
 			});
 		});
+
+		it('should allow user to filter all todos', async () => {
+			const user = userEvent.setup();
+			render(renderAppWithProvider());
+
+			const allFilterBtn = screen.getByTestId('TODO_CONTROLS_ALL_BTN');
+
+			await user.click(allFilterBtn);
+			await waitFor(() => {
+				const todos = screen.getAllByTestId('TODO_ITEM_CONTAINER');
+				expect(todos.length).toBe(6);
+				expect(todos[0]).toHaveTextContent('Complete online JavaScript course');
+				expect(todos[1]).toHaveTextContent('Jog around the park 3x');
+				expect(todos[2]).toHaveTextContent('10 minutes meditation');
+				expect(todos[3]).toHaveTextContent('Read for 1 hour');
+				expect(todos[4]).toHaveTextContent('Pick up groceries');
+				expect(todos[5]).toHaveTextContent(
+					'Complete Todo App on Frontend Mentor'
+				);
+			});
+		});
+
+		it('should allow user to filter active todos', async () => {
+			const user = userEvent.setup();
+			render(renderAppWithProvider());
+
+			const activeFilterBtn = screen.getByTestId('TODO_CONTROLS_ACTIVE_BTN');
+
+			await user.click(activeFilterBtn);
+			await waitFor(() => {
+				const todos = screen.getAllByTestId('TODO_ITEM_CONTAINER');
+				expect(todos.length).toBe(5);
+				expect(todos[0]).toHaveTextContent('Jog around the park 3x');
+				expect(todos[1]).toHaveTextContent('10 minutes meditation');
+				expect(todos[2]).toHaveTextContent('Read for 1 hour');
+				expect(todos[3]).toHaveTextContent('Pick up groceries');
+				expect(todos[4]).toHaveTextContent(
+					'Complete Todo App on Frontend Mentor'
+				);
+			});
+		});
+
+		it('should allow user to filter completed todos', async () => {
+			const user = userEvent.setup();
+			render(renderAppWithProvider());
+
+			const activeFilterBtn = screen.getByTestId('TODO_CONTROLS_COMPLETED_BTN');
+
+			await user.click(activeFilterBtn);
+			await waitFor(() => {
+				const todos = screen.getAllByTestId('TODO_ITEM_CONTAINER');
+				expect(todos.length).toBe(1);
+				expect(todos[0]).toHaveTextContent('Complete online JavaScript course');
+			});
+		});
 	});
 });
