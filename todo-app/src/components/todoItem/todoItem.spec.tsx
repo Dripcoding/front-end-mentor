@@ -8,15 +8,7 @@ describe('TodoItem', () => {
 	it('should render correctly', () => {
 		const todo = { id: uuidv4(), value: 'walk dog', completed: false };
 		const key = 'exampleKey';
-		render(
-			<TodoItem
-				todo={todo}
-				key={key}
-				completeTodo={(id) => {
-					return;
-				}}
-			/>
-		);
+		render(<TodoItem todo={todo} key={key} completeTodo={jest.fn()} />);
 
 		const container = screen.getByTestId('TODO_ITEM_CONTAINER');
 		expect(container).toBeInTheDocument();
@@ -26,15 +18,7 @@ describe('TodoItem', () => {
 	it('should render todo value', () => {
 		const todo = { id: uuidv4(), value: 'walk dog', completed: false };
 		const key = 'exampleKey';
-		render(
-			<TodoItem
-				todo={todo}
-				key={key}
-				completeTodo={(id) => {
-					return;
-				}}
-			/>
-		);
+		render(<TodoItem todo={todo} key={key} completeTodo={jest.fn()} />);
 
 		const todoEl = screen.getByTestId('TODO_ITEM_VALUE');
 		expect(todoEl).toBeInTheDocument();
@@ -44,15 +28,7 @@ describe('TodoItem', () => {
 	it('should render todo item toggle', () => {
 		const todo = { id: uuidv4(), value: 'walk dog', completed: false };
 		const key = 'exampleKey';
-		render(
-			<TodoItem
-				todo={todo}
-				key={key}
-				completeTodo={(id) => {
-					return;
-				}}
-			/>
-		);
+		render(<TodoItem todo={todo} key={key} completeTodo={jest.fn()} />);
 
 		const toggle = screen.getByTestId('TODO_ITEM_BTN');
 		expect(toggle).toBeInTheDocument();
@@ -61,15 +37,7 @@ describe('TodoItem', () => {
 	it('should render check mark when todo item is complete', () => {
 		const todo = { id: uuidv4(), value: 'finish homework', completed: true };
 		const key = 'exampleKey';
-		render(
-			<TodoItem
-				todo={todo}
-				key={key}
-				completeTodo={(id) => {
-					return;
-				}}
-			/>
-		);
+		render(<TodoItem todo={todo} key={key} completeTodo={jest.fn()} />);
 
 		const checkmark = screen.getByTestId('TODO_ITEM_CHECK_MARK');
 		expect(checkmark).toBeInTheDocument();
