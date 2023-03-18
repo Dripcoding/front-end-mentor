@@ -15,7 +15,7 @@ div.TODO_ITEM_container {
 
 	.TODO_ITEM_radio_btn {
 		@include mixins.flex(row, center, center);
-        border: 1px solid #e3e4f1;
+		border: 1px solid #e3e4f1;
 		border-radius: 50%;
 		height: 24px;
 		width: 24px;
@@ -30,5 +30,10 @@ div.TODO_ITEM_container {
 		font-weight: $text-font-weight;
 		color: $text-primary-font-color-light;
 		line-height: $text-line-height;
+
+		&.TODO_ITEM_completed {
+			text-decoration: line-through;
+			color: $text-completed-font-color-light;
+		}
 	}
 }

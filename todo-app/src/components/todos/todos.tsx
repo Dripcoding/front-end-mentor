@@ -23,7 +23,7 @@ import '../../styles/todos.scss';
 const STYLE_BASE = 'TODOS_';
 
 const Todos = (): JSX.Element => {
-	const { todos, updateTodos } = useTodo();
+	const { todos, updateTodos, completeTodo } = useTodo();
 	const { setNodeRef } = useDroppable({ id: `${uuidv4()}` });
 
 	const sensors = useSensors(
@@ -74,7 +74,13 @@ const Todos = (): JSX.Element => {
 					ref={setNodeRef}
 				>
 					{todos.map((todo) => {
-						return <TodoItem key={uuidv4()} todo={todo} />;
+						return (
+							<TodoItem
+								key={uuidv4()}
+								todo={todo}
+								completeTodo={completeTodo}
+							/>
+						);
 					})}
 					<TodoControls />
 				</section>

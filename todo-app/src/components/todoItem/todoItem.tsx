@@ -10,10 +10,10 @@ const STYLE_BASE = 'TODO_ITEM_';
 interface ITodoItemProps {
 	todo: ITodoItem;
 	key: string;
+	completeTodo: (id: string) => void;
 }
 
-const TodoItem = ({ todo }: ITodoItemProps): JSX.Element => {
-	const { completeTodo } = useTodo();
+const TodoItem = ({ todo, completeTodo }: ITodoItemProps): JSX.Element => {
 	const {
 		attributes,
 		isDragging,
@@ -51,11 +51,22 @@ const TodoItem = ({ todo }: ITodoItemProps): JSX.Element => {
 					onClick={handleClick}
 				>
 					{todo.completed && (
-						<img src='src/assets/images/icon-check.svg' alt='todo check mark' />
+						<img
+							src='src/assets/images/icon-check.svg'
+							alt='todo check mark'
+							data-testid='TODO_ITEM_CHECK_MARK'
+						/>
 					)}
 				</div>
 			</div>
-			<span data-testid='TODO_ITEM_VALUE'>{todo.value}</span>{' '}
+			<span
+				className={classNames({
+					[`${STYLE_BASE}completed`]: todo.completed,
+				})}
+				data-testid='TODO_ITEM_VALUE'
+			>
+				{todo.value}
+			</span>{' '}
 		</div>
 	);
 };

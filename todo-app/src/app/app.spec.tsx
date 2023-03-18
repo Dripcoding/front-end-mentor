@@ -44,5 +44,18 @@ describe('App', () => {
 				expect(newTodo).toHaveTextContent('new todo');
 			});
 		});
+
+		it('should allow user to complete a todo', async () => {
+			const user = userEvent.setup();
+			render(renderAppWithProvider());
+
+			const completeTodoButtons = screen.getAllByTestId('TODO_ITEM_BTN');
+
+			await user.click(completeTodoButtons[0]);
+
+			await waitFor(() => {
+				expect(screen.getByTestId('TODO_ITEM_CHECK_MARK')).toBeInTheDocument();
+			});
+		});
 	});
 });

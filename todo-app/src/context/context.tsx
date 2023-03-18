@@ -85,7 +85,6 @@ export const TodoProvider = ({ children }): JSX.Element => {
 				return prev.map((todo) => {
 					if (todo.id === id) {
 						todo.completed = true;
-						console.log(todo);
 					}
 					return todo;
 				});
