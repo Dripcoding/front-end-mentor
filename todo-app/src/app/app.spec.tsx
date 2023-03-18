@@ -52,9 +52,20 @@ describe('App', () => {
 			const completeTodoButtons = screen.getAllByTestId('TODO_ITEM_BTN');
 
 			await user.click(completeTodoButtons[0]);
-
 			await waitFor(() => {
 				expect(screen.getByTestId('TODO_ITEM_CHECK_MARK')).toBeInTheDocument();
+			});
+		});
+
+		it('should show user correct active todo count', async () => {
+			const user = userEvent.setup();
+			render(renderAppWithProvider());
+
+			const completeTodoButtons = screen.getAllByTestId('TODO_ITEM_BTN');
+
+			await user.click(completeTodoButtons[0]);
+			await waitFor(() => {
+				expect(screen.getByText('5 items left')).toBeInTheDocument();
 			});
 		});
 	});

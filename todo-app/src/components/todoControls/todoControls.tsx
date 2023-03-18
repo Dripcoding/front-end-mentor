@@ -2,7 +2,11 @@ import '../../styles/todoControls.scss';
 
 const STYLE_BASE = 'TODO_CONTROLS_';
 
-const TodoControls = (): JSX.Element => {
+interface ITodoControlsProps {
+	activeCount: number;
+}
+
+const TodoControls = ({ activeCount }: ITodoControlsProps): JSX.Element => {
 	return (
 		<section
 			className={`${STYLE_BASE}container`}
@@ -12,7 +16,7 @@ const TodoControls = (): JSX.Element => {
 				className={`${STYLE_BASE}counter_container`}
 				data-testid='TODO_CONTROLS_COUNTER'
 			>
-				5 items left
+				{activeCount} items left
 			</span>
 			<div
 				className={`${STYLE_BASE}toggles_container`}
