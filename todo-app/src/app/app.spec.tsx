@@ -1,5 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { clear } from 'console';
 import { TodoProvider } from 'context/context';
 
 import App from './app';
@@ -121,6 +122,22 @@ describe('App', () => {
 				const todos = screen.getAllByTestId('TODO_ITEM_CONTAINER');
 				expect(todos.length).toBe(1);
 				expect(todos[0]).toHaveTextContent('Complete online JavaScript course');
+			});
+		});
+
+		it('should allow user to clear completed todos', async () => {
+			const user = userEvent.setup();
+			render(renderAppWithProvider());
+
+			const clearBtn = screen.getByTestId('TODO_CONTROLS_CLEAR');
+
+			await user.click(clearBtn);
+			await waitFor(() => {
+				const todos = screen.getAllByTestId('TODO_ITEM_CONTAINER');
+				expect(todos.length).toBe(5);
+				expect(screen.queryByText('Complete online JavaScript course')).toBe(
+					null
+				);
 			});
 		});
 	});

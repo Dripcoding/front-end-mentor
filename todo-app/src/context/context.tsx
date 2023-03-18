@@ -19,6 +19,7 @@ export interface ITodoState {
 	addTodo: (newTodo: ITodoItem) => void;
 	completeTodo: (id: string) => void;
 	updateTodos: (todos: ITodoItem[]) => void;
+	clearCompleted: () => void;
 	changeTheme: (theme: string) => void;
 }
 
@@ -47,6 +48,9 @@ const initialState = {
 		return;
 	},
 	updateTodos: (todos: ITodoItem[]) => {
+		return;
+	},
+	clearCompleted: () => {
 		return;
 	},
 	changeTheme: (theme: string) => {
@@ -100,6 +104,12 @@ export const TodoProvider = ({ children }): JSX.Element => {
 		[setTodos]
 	);
 
+	const clearCompleted = useCallback(() => {
+		setTodos((prev: ITodoItem[]) => {
+			return prev.filter((todo) => !todo.completed);
+		});
+	}, [setTodos]);
+
 	const changeTheme = useCallback(
 		(theme: string) => {
 			setTheme(theme);
@@ -114,9 +124,18 @@ export const TodoProvider = ({ children }): JSX.Element => {
 			addTodo,
 			completeTodo,
 			updateTodos,
+			clearCompleted,
 			changeTheme,
 		}),
-		[todos, theme, addTodo, completeTodo, updateTodos, changeTheme]
+		[
+			todos,
+			theme,
+			addTodo,
+			completeTodo,
+			updateTodos,
+			clearCompleted,
+			changeTheme,
+		]
 	);
 
 	return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>;

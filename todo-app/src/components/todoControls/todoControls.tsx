@@ -1,22 +1,29 @@
 import classnames from 'classnames';
 import { TodoFilters } from 'components/todos/todos';
+import React, { Dispatch, SetStateAction } from 'react';
 import '../../styles/todoControls.scss';
 
 const STYLE_BASE = 'TODO_CONTROLS_';
 
 interface ITodoControlsProps {
 	activeCount: number;
-	changeFilter: React.Dispatch<React.SetStateAction<string>>;
+	changeFilter: Dispatch<SetStateAction<string>>;
 	filter: string;
+	clearCompleted: () => void;
 }
 
 const TodoControls = ({
 	activeCount,
 	changeFilter,
 	filter,
+	clearCompleted,
 }: ITodoControlsProps): JSX.Element => {
 	const handleFilter = (e: React.MouseEvent<HTMLButtonElement>) => {
 		changeFilter(e.currentTarget.id);
+	};
+
+	const handleClearCompleted = (e: React.MouseEvent<HTMLButtonElement>) => {
+		clearCompleted();
 	};
 
 	return (
@@ -68,6 +75,7 @@ const TodoControls = ({
 			<button
 				className={`${STYLE_BASE}clear_button`}
 				data-testid='TODO_CONTROLS_CLEAR'
+				onClick={handleClearCompleted}
 			>
 				Clear Completed
 			</button>
