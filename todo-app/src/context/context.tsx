@@ -10,27 +10,40 @@ import { v4 as uuidv4 } from 'uuid';
 export interface ITodoItem {
 	id: string;
 	value: string;
+	completed: boolean;
 }
 
 export interface ITodoState {
 	todos: ITodoItem[];
 	theme: string;
 	addTodo: (newTodo: ITodoItem) => void;
+	completeTodo: (id: string) => void;
 	updateTodos: (todos: ITodoItem[]) => void;
 	changeTheme: (theme: string) => void;
 }
 
 const initialState = {
 	todos: [
-		{ id: uuidv4(), value: 'Complete online JavaScript course' },
-		{ id: uuidv4(), value: 'Jog around the park 3x' },
-		{ id: uuidv4(), value: '10 minutes meditation' },
-		{ id: uuidv4(), value: 'Read for 1 hour' },
-		{ id: uuidv4(), value: 'Pick up groceries' },
-		{ id: uuidv4(), value: 'Complete Todo App on Frontend Mentor' },
+		{
+			id: uuidv4(),
+			value: 'Complete online JavaScript course',
+			completed: true,
+		},
+		{ id: uuidv4(), value: 'Jog around the park 3x', completed: false },
+		{ id: uuidv4(), value: '10 minutes meditation', completed: false },
+		{ id: uuidv4(), value: 'Read for 1 hour', completed: false },
+		{ id: uuidv4(), value: 'Pick up groceries', completed: false },
+		{
+			id: uuidv4(),
+			value: 'Complete Todo App on Frontend Mentor',
+			completed: false,
+		},
 	],
 	theme: 'light',
 	addTodo: (newTodo: ITodoItem) => {
+		return;
+	},
+	completeTodo: (id: string) => {
 		return;
 	},
 	updateTodos: (todos: ITodoItem[]) => {
@@ -66,6 +79,20 @@ export const TodoProvider = ({ children }): JSX.Element => {
 		[setTodos]
 	);
 
+	const completeTodo = useCallback(
+		(id: string) => {
+			setTodos((prev: ITodoItem[]) => {
+				return prev.map((todo) => {
+					if (todo.id === id) {
+						todo.completed = true;
+					}
+					return todo;
+				});
+			});
+		},
+		[setTodos]
+	);
+
 	const updateTodos = useCallback(
 		(todos: ITodoItem[]) => {
 			setTodos(todos);
@@ -81,8 +108,8 @@ export const TodoProvider = ({ children }): JSX.Element => {
 	);
 
 	const values = useMemo(
-		() => ({ todos, theme, addTodo, updateTodos, changeTheme }),
-		[todos, theme, addTodo, updateTodos, changeTheme]
+		() => ({ todos, theme, addTodo, completeTodo, updateTodos, changeTheme }),
+		[todos, theme, addTodo, completeTodo, updateTodos, changeTheme]
 	);
 
 	return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>;

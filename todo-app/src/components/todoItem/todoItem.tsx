@@ -1,6 +1,8 @@
+import classNames from 'classnames';
 import { CSS } from '@dnd-kit/utilities';
 import { useSortable } from '@dnd-kit/sortable';
-import { ITodoItem } from 'context/context';
+import { ITodoItem, useTodo } from 'context/context';
+import { ReactComponent as CheckIcon } from '../../assets/images/icon-check.svg';
 import '../../styles/todoItem.scss';
 
 const STYLE_BASE = 'TODO_ITEM_';
@@ -8,9 +10,10 @@ const STYLE_BASE = 'TODO_ITEM_';
 interface ITodoItemProps {
 	todo: ITodoItem;
 	key: string;
+	completeTodo: (id: string) => void;
 }
 
-const TodoItem = ({ todo }: ITodoItemProps): JSX.Element => {
+const TodoItem = ({ todo, completeTodo }: ITodoItemProps): JSX.Element => {
 	const {
 		attributes,
 		isDragging,
@@ -25,6 +28,10 @@ const TodoItem = ({ todo }: ITodoItemProps): JSX.Element => {
 		opacity: isDragging ? 0.5 : 1,
 	};
 
+	const handleClick = (e) => {
+		completeTodo(todo.id);
+	};
+
 	return (
 		<div
 			className={`${STYLE_BASE}container`}
@@ -36,11 +43,30 @@ const TodoItem = ({ todo }: ITodoItemProps): JSX.Element => {
 		>
 			<div className={`${STYLE_BASE}radio_btn_container`}>
 				<div
-					className={`${STYLE_BASE}radio_btn`}
+					className={classNames({
+						[`${STYLE_BASE}radio_btn`]: true,
+						[`${STYLE_BASE}radio_btn_pressed`]: todo.completed,
+					})}
 					data-testid='TODO_ITEM_BTN'
-				></div>
+					onClick={handleClick}
+				>
+					{todo.completed && (
+						<img
+							src='src/assets/images/icon-check.svg'
+							alt='todo check mark'
+							data-testid='TODO_ITEM_CHECK_MARK'
+						/>
+					)}
+				</div>
 			</div>
-			<span data-testid='TODO_ITEM_VALUE'>{todo.value}</span>{' '}
+			<span
+				className={classNames({
+					[`${STYLE_BASE}completed`]: todo.completed,
+				})}
+				data-testid='TODO_ITEM_VALUE'
+			>
+				{todo.value}
+			</span>{' '}
 		</div>
 	);
 };
