@@ -23,6 +23,12 @@ import { useState } from 'react';
 
 const STYLE_BASE = 'TODOS_';
 
+export enum TodoFilters {
+	ALL = 'ALL',
+	ACTIVE = 'ACTIVE',
+	COMPLETED = 'COMPLETED',
+}
+
 export const filterStrategy = {
 	ALL: (todos: ITodoItem[]) => todos,
 	ACTIVE: (todos: ITodoItem[]) => todos.filter((todo) => !todo.completed),
@@ -32,7 +38,7 @@ export const filterStrategy = {
 const Todos = (): JSX.Element => {
 	const { todos, updateTodos, completeTodo } = useTodo();
 	const { setNodeRef } = useDroppable({ id: `${uuidv4()}` });
-	const [filter, setFilter] = useState('ALL');
+	const [filter, setFilter] = useState(TodoFilters.ALL);
 
 	const activeCount = todos.filter((todo) => !todo.completed).length;
 	const filteredTodos = filterStrategy[filter](todos);
@@ -93,7 +99,11 @@ const Todos = (): JSX.Element => {
 							/>
 						);
 					})}
-					<TodoControls activeCount={activeCount} changeFilter={setFilter} />
+					<TodoControls
+						activeCount={activeCount}
+						changeFilter={setFilter}
+						filter={filter}
+					/>
 				</section>
 			</SortableContext>
 		</DndContext>

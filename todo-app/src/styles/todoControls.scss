@@ -24,14 +24,13 @@ section.TODO_CONTROLS_container {
 		color: $secondary-hover-font-color-light;
 	}
 
+	button.TODO_CONTROLS_activated {
+		color: $secondary-selected-font-color;
+	}
+
 	.TODO_CONTROLS_toggles_container {
 		@include mixins.flex('row', 'space-evenly', center);
 		button {
-			font-weight: $secondary-font-weight;
-		}
-
-		button:hover {
-			color: $secondary-hover-font-color-light;
 			font-weight: $secondary-font-weight;
 		}
 	}
