@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { CSS } from '@dnd-kit/utilities';
 import { useSortable } from '@dnd-kit/sortable';
 import { ITodoItem, useTodo } from 'context/context';
+import { ReactComponent as CheckIcon } from '../../assets/images/icon-check.svg';
 import '../../styles/todoItem.scss';
 
 const STYLE_BASE = 'TODO_ITEM_';
@@ -48,7 +49,11 @@ const TodoItem = ({ todo }: ITodoItemProps): JSX.Element => {
 					})}
 					data-testid='TODO_ITEM_BTN'
 					onClick={handleClick}
-				></div>
+				>
+					{todo.completed && (
+						<img src='src/assets/images/icon-check.svg' alt='todo check mark' />
+					)}
+				</div>
 			</div>
 			<span data-testid='TODO_ITEM_VALUE'>{todo.value}</span>{' '}
 		</div>

@@ -6,7 +6,7 @@ import TodoItem from './todoItem';
 
 describe('TodoItem', () => {
 	it('should render correctly', () => {
-		const todo = { id: uuidv4(), value: 'walk dog' };
+		const todo = { id: uuidv4(), value: 'walk dog', completed: false };
 		const key = 'exampleKey';
 		render(<TodoItem todo={todo} key={key} />);
 
@@ -16,7 +16,7 @@ describe('TodoItem', () => {
 	});
 
 	it('should render todo value', () => {
-		const todo = { id: uuidv4(), value: 'walk dog' };
+		const todo = { id: uuidv4(), value: 'walk dog', completed: false };
 		const key = 'exampleKey';
 		render(<TodoItem todo={todo} key={key} />);
 
@@ -26,7 +26,7 @@ describe('TodoItem', () => {
 	});
 
 	it('should render todo item toggle', () => {
-		const todo = { id: uuidv4(), value: 'walk dog' };
+		const todo = { id: uuidv4(), value: 'walk dog', completed: false };
 		const key = 'exampleKey';
 		render(<TodoItem todo={todo} key={key} />);
 

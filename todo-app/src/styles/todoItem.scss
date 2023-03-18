@@ -14,14 +14,14 @@ div.TODO_ITEM_container {
 	}
 
 	.TODO_ITEM_radio_btn {
-		border: 1px solid #e3e4f1;
+		@include mixins.flex(row, center, center);
+        border: 1px solid #e3e4f1;
 		border-radius: 50%;
 		height: 24px;
 		width: 24px;
 
 		&.TODO_ITEM_radio_btn_pressed {
-			border: 2px solid red;
-			// todo: define completed styles here...
+			background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
 		}
 	}
 
