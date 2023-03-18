@@ -1,12 +1,24 @@
+import classnames from 'classnames';
+import { TodoFilters } from 'components/todos/todos';
 import '../../styles/todoControls.scss';
 
 const STYLE_BASE = 'TODO_CONTROLS_';
 
 interface ITodoControlsProps {
 	activeCount: number;
+	changeFilter: React.Dispatch<React.SetStateAction<string>>;
+	filter: string;
 }
 
-const TodoControls = ({ activeCount }: ITodoControlsProps): JSX.Element => {
+const TodoControls = ({
+	activeCount,
+	changeFilter,
+	filter,
+}: ITodoControlsProps): JSX.Element => {
+	const handleFilter = (e: React.MouseEvent<HTMLButtonElement>) => {
+		changeFilter(e.currentTarget.id);
+	};
+
 	return (
 		<section
 			className={`${STYLE_BASE}container`}
@@ -22,9 +34,36 @@ const TodoControls = ({ activeCount }: ITodoControlsProps): JSX.Element => {
 				className={`${STYLE_BASE}toggles_container`}
 				data-testid='TODO_CONTROLS_TOGGLES'
 			>
-				<button data-testid='TODO_CONTROLS_ALL_BTN'>All</button>
-				<button data-testid='TODO_CONTROLS_ACTIVE_BTN'>Active</button>
-				<button data-testid='TODO_CONTROLS_COMPLETED_BTN'>Completed</button>
+				<button
+					className={classnames({
+						[`${STYLE_BASE}activated`]: filter === TodoFilters.ALL,
+					})}
+					onClick={handleFilter}
+					id='ALL'
+					data-testid='TODO_CONTROLS_ALL_BTN'
+				>
+					All
+				</button>
+				<button
+					className={classnames({
+						[`${STYLE_BASE}activated`]: filter === TodoFilters.ACTIVE,
+					})}
+					onClick={handleFilter}
+					id='ACTIVE'
+					data-testid='TODO_CONTROLS_ACTIVE_BTN'
+				>
+					Active
+				</button>
+				<button
+					className={classnames({
+						[`${STYLE_BASE}activated`]: filter === TodoFilters.COMPLETED,
+					})}
+					onClick={handleFilter}
+					id='COMPLETED'
+					data-testid='TODO_CONTROLS_COMPLETED_BTN'
+				>
+					Completed
+				</button>
 			</div>
 			<button
 				className={`${STYLE_BASE}clear_button`}

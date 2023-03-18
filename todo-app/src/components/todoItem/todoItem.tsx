@@ -1,8 +1,7 @@
 import classNames from 'classnames';
 import { CSS } from '@dnd-kit/utilities';
 import { useSortable } from '@dnd-kit/sortable';
-import { ITodoItem, useTodo } from 'context/context';
-import { ReactComponent as CheckIcon } from '../../assets/images/icon-check.svg';
+import { ITodoItem } from 'context/context';
 import '../../styles/todoItem.scss';
 
 const STYLE_BASE = 'TODO_ITEM_';

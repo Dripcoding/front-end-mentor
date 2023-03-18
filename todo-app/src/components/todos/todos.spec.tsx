@@ -1,8 +1,9 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
+import { v4 as uuidv4 } from 'uuid';
 import { TodoProvider } from 'context/context';
 
-import Todos from './todos';
+import Todos, { filterStrategy } from './todos';
 
 const renderTodosWithProvider = () => {
 	return (
@@ -37,5 +38,46 @@ describe('Todos', () => {
 		render(renderTodosWithProvider());
 
 		expect(screen.getByTestId('TODO_CONTROLS_CONTAINER')).toBeInTheDocument();
+	});
+
+	describe('filter strategies', () => {
+		it('ALL strategy returns all todos', () => {
+			const todos = [
+				{ id: uuidv4(), value: 'Jog around the park 3x', completed: false },
+				{ id: uuidv4(), value: '10 minutes meditation', completed: false },
+				{ id: uuidv4(), value: 'Read for 1 hour', completed: false },
+			];
+			const strategy = filterStrategy['ALL'];
+			const filtered = strategy(todos);
+
+			expect(filtered.length).toBe(3);
+			expect(filtered).toEqual(todos);
+		});
+
+		it('ACTIVE strategy returns active todos', () => {
+			const todos = [
+				{ id: uuidv4(), value: 'Jog around the park 3x', completed: false },
+				{ id: uuidv4(), value: '10 minutes meditation', completed: false },
+				{ id: uuidv4(), value: 'Read for 1 hour', completed: true },
+			];
+			const strategy = filterStrategy['ACTIVE'];
+			const filtered = strategy(todos);
+
+			expect(filtered.length).toBe(2);
+			expect(filtered).toEqual([todos[0], todos[1]]);
+		});
+
+		it('COMPLETED strategy returns completed todos', () => {
+			const todos = [
+				{ id: uuidv4(), value: 'Jog around the park 3x', completed: false },
+				{ id: uuidv4(), value: '10 minutes meditation', completed: false },
+				{ id: uuidv4(), value: 'Read for 1 hour', completed: true },
+			];
+			const strategy = filterStrategy['COMPLETED'];
+			const filtered = strategy(todos);
+
+			expect(filtered.length).toBe(1);
+			expect(filtered).toEqual([todos[2]]);
+		});
 	});
 });
