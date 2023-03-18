@@ -36,9 +36,9 @@ export const filterStrategy = {
 };
 
 const Todos = (): JSX.Element => {
-	const { todos, updateTodos, completeTodo } = useTodo();
+	const { todos, updateTodos, completeTodo, clearCompleted } = useTodo();
 	const { setNodeRef } = useDroppable({ id: `${uuidv4()}` });
-	const [filter, setFilter] = useState(TodoFilters.ALL);
+	const [filter, setFilter] = useState(TodoFilters.ALL.toString());
 
 	const activeCount = todos.filter((todo) => !todo.completed).length;
 	const filteredTodos = filterStrategy[filter](todos);
@@ -103,6 +103,7 @@ const Todos = (): JSX.Element => {
 						activeCount={activeCount}
 						changeFilter={setFilter}
 						filter={filter}
+						clearCompleted={clearCompleted}
 					/>
 				</section>
 			</SortableContext>
