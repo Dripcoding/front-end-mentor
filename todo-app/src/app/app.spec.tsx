@@ -1,6 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { clear } from 'console';
 import { TodoProvider } from 'context/context';
 
 import App from './app';

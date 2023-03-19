@@ -20,7 +20,7 @@ export interface ITodoState {
 	completeTodo: (id: string) => void;
 	updateTodos: (todos: ITodoItem[]) => void;
 	clearCompleted: () => void;
-	changeTheme: (theme: string) => void;
+	changeTheme: () => void;
 }
 
 const initialState = {
@@ -53,7 +53,7 @@ const initialState = {
 	clearCompleted: () => {
 		return;
 	},
-	changeTheme: (theme: string) => {
+	changeTheme: () => {
 		return;
 	},
 };
@@ -110,12 +110,9 @@ export const TodoProvider = ({ children }): JSX.Element => {
 		});
 	}, [setTodos]);
 
-	const changeTheme = useCallback(
-		(theme: string) => {
-			setTheme(theme);
-		},
-		[setTheme]
-	);
+	const changeTheme = useCallback(() => {
+		setTheme(theme === 'light' ? 'dark' : 'light');
+	}, [setTheme, theme]);
 
 	const values = useMemo(
 		() => ({
