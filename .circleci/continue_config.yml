@@ -22,7 +22,10 @@ workflows:
   todo-app:
     when: << pipeline.parameters.run-todo-app-job >>
     jobs:
-      - tests
+      - lint
+      - tests:
+          requires:
+            - lint
       - build:
           requires:
             - tests
@@ -37,6 +40,23 @@ workflows:
             - lighthouse-mobile
 
 jobs:
+  lint:
+    working_directory: ~/front-end-mentor
+    docker:
+      - image: cimg/node:18.15.0-browsers
+    environment:
+      MAIN_BRANCH_NAME: master
+    steps:
+      - checkout:
+          path: ~/front-end-mentor
+      - run: cd todo-app/ && yarn install --froze-lockfile
+      - nx/set-shas:
+          allow-on-hold-workflow: true
+          error-on-no-successful-workflow: true
+          main-branch-name: master
+          workflow-name: nx-pipeline
+      - run: cd todo-app/ && node --version
+      - run: npx nx affected --base=$NX_BASE --head=HEAD --target=lint
   tests:
     working_directory: ~/front-end-mentor
     docker:
