@@ -9,6 +9,10 @@ section.TODO_CONTROLS_container {
 	width: $container-width;
 	height: 64px;
 
+	&.TODO_CONTROLS_dark_mode {
+		background-color: $bg-color-dark;
+	}
+
 	button,
 	span {
 		border: none;
@@ -22,6 +26,15 @@ section.TODO_CONTROLS_container {
 
 	button:hover {
 		color: $secondary-hover-font-color-light;
+	}
+
+	button.TODO_CONTROLS_dark_mode:hover {
+		color: $secondary-hover-font-color-dark;
+	}
+
+	button.TODO_CONTROLS_dark_mode,
+	span.TODO_CONTROLS_dark_mode {
+		color: $controls-font-color-dark;
 	}
 
 	button.TODO_CONTROLS_activated {

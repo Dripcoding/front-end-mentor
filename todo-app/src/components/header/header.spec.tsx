@@ -1,17 +1,26 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
+import { TodoProvider } from 'context/context';
 
 import Header from './header';
 
+const renderHeaderWithProvider = () => {
+	return (
+		<TodoProvider>
+			<Header />
+		</TodoProvider>
+	);
+};
+
 describe('Todo Header', () => {
 	it('should render correctly', () => {
-		render(<Header />);
+		render(renderHeaderWithProvider());
 
 		expect(screen.getByTestId('TODO_HEADER_CONTAINER')).toBeInTheDocument();
 	});
 
 	it('should have a header', () => {
-		render(<Header />);
+		render(renderHeaderWithProvider());
 
 		const header = screen.getByRole('heading');
 		expect(header).toBeInTheDocument();
@@ -19,9 +28,16 @@ describe('Todo Header', () => {
 	});
 
 	it('should have an image toggle', () => {
-		render(<Header />);
+		render(renderHeaderWithProvider());
 
 		const img = screen.getByRole('img');
 		expect(img).toBeInTheDocument();
+	});
+
+	it('renders moon icon by default', () => {
+		render(renderHeaderWithProvider());
+
+		const moonIcon = screen.getByTitle('Moon Icon');
+		expect(moonIcon).toBeInTheDocument();
 	});
 });

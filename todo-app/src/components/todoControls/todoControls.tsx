@@ -10,6 +10,7 @@ interface ITodoControlsProps {
 	changeFilter: Dispatch<SetStateAction<string>>;
 	filter: string;
 	clearCompleted: () => void;
+	theme: string;
 }
 
 const TodoControls = ({
@@ -17,6 +18,7 @@ const TodoControls = ({
 	changeFilter,
 	filter,
 	clearCompleted,
+	theme,
 }: ITodoControlsProps): JSX.Element => {
 	const handleFilter = (e: React.MouseEvent<HTMLButtonElement>) => {
 		changeFilter(e.currentTarget.id);
@@ -28,11 +30,17 @@ const TodoControls = ({
 
 	return (
 		<section
-			className={`${STYLE_BASE}container`}
+			className={classnames({
+				[`${STYLE_BASE}container`]: true,
+				[`${STYLE_BASE}dark_mode`]: theme === 'dark',
+			})}
 			data-testid='TODO_CONTROLS_CONTAINER'
 		>
 			<span
-				className={`${STYLE_BASE}counter_container`}
+				className={classnames({
+					[`${STYLE_BASE}counter_container`]: true,
+					[`${STYLE_BASE}dark_mode`]: theme === 'dark',
+				})}
 				data-testid='TODO_CONTROLS_COUNTER'
 			>
 				{activeCount} items left
@@ -44,6 +52,7 @@ const TodoControls = ({
 				<button
 					className={classnames({
 						[`${STYLE_BASE}activated`]: filter === TodoFilters.ALL,
+						[`${STYLE_BASE}dark_mode`]: theme === 'dark',
 					})}
 					onClick={handleFilter}
 					id='ALL'
@@ -54,6 +63,7 @@ const TodoControls = ({
 				<button
 					className={classnames({
 						[`${STYLE_BASE}activated`]: filter === TodoFilters.ACTIVE,
+						[`${STYLE_BASE}dark_mode`]: theme === 'dark',
 					})}
 					onClick={handleFilter}
 					id='ACTIVE'
@@ -64,6 +74,7 @@ const TodoControls = ({
 				<button
 					className={classnames({
 						[`${STYLE_BASE}activated`]: filter === TodoFilters.COMPLETED,
+						[`${STYLE_BASE}dark_mode`]: theme === 'dark',
 					})}
 					onClick={handleFilter}
 					id='COMPLETED'
@@ -73,7 +84,10 @@ const TodoControls = ({
 				</button>
 			</div>
 			<button
-				className={`${STYLE_BASE}clear_button`}
+				className={classnames({
+					[`${STYLE_BASE}clear_button`]: true,
+					[`${STYLE_BASE}dark_mode`]: theme === 'dark',
+				})}
 				data-testid='TODO_CONTROLS_CLEAR'
 				onClick={handleClearCompleted}
 			>

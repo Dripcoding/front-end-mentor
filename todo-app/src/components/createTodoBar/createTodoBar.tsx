@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
+import classNames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 import { useTodo } from 'context/context';
 import '../../styles/createTodoBar.scss';
@@ -6,7 +7,7 @@ import '../../styles/createTodoBar.scss';
 const STYLE_BASE = 'CREATE_TODO_BAR_';
 
 const CreateTodoBar = (): JSX.Element => {
-	const { addTodo } = useTodo();
+	const { addTodo, theme } = useTodo();
 	const [newTodo, setNewTodo] = useState('');
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -23,17 +24,26 @@ const CreateTodoBar = (): JSX.Element => {
 
 	return (
 		<section
-			className={`${STYLE_BASE}container`}
+			className={classNames({
+				[`${STYLE_BASE}container`]: true,
+				[`${STYLE_BASE}dark_mode`]: theme === 'dark',
+			})}
 			data-testid='CREATE_TODO_BAR_CONTAINER'
 		>
-			<div className={`${STYLE_BASE}radio_btn_container`}>
+			<div className={`${STYLE_BASE}btn_container`}>
 				<div
-					className={`${STYLE_BASE}radio_btn`}
-					data-testid='CREATE_TODO_BAR_RADIO_BTN'
+					className={classNames({
+						[`${STYLE_BASE}btn`]: true,
+						[`${STYLE_BASE}dark_mode`]: theme === 'dark',
+					})}
+					data-testid='CREATE_TODO_BAR_BTN'
 				></div>
 			</div>
 			<form onSubmit={handleSubmit} data-testid='CREATE_TODO_BAR_FORM'>
 				<input
+					className={classNames({
+						[`${STYLE_BASE}dark_mode`]: theme === 'dark',
+					})}
 					type='text'
 					placeholder='Create a todo...'
 					data-testid='CREATE_TODO_BAR_INPUT'

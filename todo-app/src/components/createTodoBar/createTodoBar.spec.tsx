@@ -22,7 +22,7 @@ describe('CreateTodoBar', () => {
 	it('should have radio btn', () => {
 		render(renderCreateTodoBarWithProvider());
 
-		expect(screen.getByTestId('CREATE_TODO_BAR_RADIO_BTN')).toBeInTheDocument();
+		expect(screen.getByTestId('CREATE_TODO_BAR_BTN')).toBeInTheDocument();
 	});
 
 	it('should have form', () => {

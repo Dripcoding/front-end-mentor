@@ -4,29 +4,43 @@
 @use './mixins.scss' as mixins;
 
 html {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-*, *:before, *:after {
-    box-sizing: inherit;
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
 }
 
 #root {
-    @include mixins.flex(column, center, center);
-    background-image: url('src/assets/images/bg-desktop-light.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position: top center;
+	@include mixins.flex(column, center, center);
+	background-image: url('src/assets/images/bg-desktop-light.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: top center;
+
+	&.dark_mode {
+		background-color: $app-bg-color-dark;
+	}
 }
 
 .APP_container {
-    @include mixins.flex(column, flex-start, center);
-    width: $container-width;
-    margin-right: $margin-right;
-    margin-left: $margin-left;
-    font-family: $font-family;
-    font-style: $font-style;
-    height: 100vh;
+	@include mixins.flex(column, flex-start, center);
+	width: 100vw;
+	height: 100vh;
+	margin-right: $margin-right;
+	margin-left: $margin-left;
+	font-family: $font-family;
+	font-style: $font-style;
+
+	&.APP_dark_mode {
+		background-image: url('src/assets/images/bg-desktop-dark.jpg');
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: top center;
+		background-color: $app-bg-color-dark;
+	}
 }
