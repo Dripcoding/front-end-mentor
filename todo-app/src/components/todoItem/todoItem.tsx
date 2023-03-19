@@ -10,9 +10,14 @@ interface ITodoItemProps {
 	todo: ITodoItem;
 	key: string;
 	completeTodo: (id: string) => void;
+	theme: string;
 }
 
-const TodoItem = ({ todo, completeTodo }: ITodoItemProps): JSX.Element => {
+const TodoItem = ({
+	todo,
+	completeTodo,
+	theme,
+}: ITodoItemProps): JSX.Element => {
 	const {
 		attributes,
 		isDragging,
@@ -33,18 +38,22 @@ const TodoItem = ({ todo, completeTodo }: ITodoItemProps): JSX.Element => {
 
 	return (
 		<div
-			className={`${STYLE_BASE}container`}
+			className={classNames({
+				[`${STYLE_BASE}container`]: true,
+				[`${STYLE_BASE}dark_mode`]: theme === 'dark',
+			})}
 			data-testid='TODO_ITEM_CONTAINER'
 			ref={setNodeRef}
 			style={style}
 			{...attributes}
 			{...listeners}
 		>
-			<div className={`${STYLE_BASE}radio_btn_container`}>
+			<div className={`${STYLE_BASE}btn_container`}>
 				<button
 					className={classNames({
-						[`${STYLE_BASE}radio_btn`]: true,
-						[`${STYLE_BASE}radio_btn_pressed`]: todo.completed,
+						[`${STYLE_BASE}btn`]: true,
+						[`${STYLE_BASE}btn_pressed`]: todo.completed,
+						[`${STYLE_BASE}btn_dark_mode`]: theme === 'dark',
 					})}
 					data-testid='TODO_ITEM_BTN'
 					onClick={handleClick}
@@ -61,6 +70,7 @@ const TodoItem = ({ todo, completeTodo }: ITodoItemProps): JSX.Element => {
 			<span
 				className={classNames({
 					[`${STYLE_BASE}completed`]: todo.completed,
+					[`${STYLE_BASE}dark_mode`]: theme === 'dark',
 				})}
 				data-testid='TODO_ITEM_VALUE'
 			>

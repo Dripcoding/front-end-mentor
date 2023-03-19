@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 import {
 	DndContext,
@@ -36,7 +37,7 @@ export const filterStrategy = {
 };
 
 const Todos = (): JSX.Element => {
-	const { todos, updateTodos, completeTodo, clearCompleted } = useTodo();
+	const { todos, updateTodos, completeTodo, clearCompleted, theme } = useTodo();
 	const { setNodeRef } = useDroppable({ id: `${uuidv4()}` });
 	const [filter, setFilter] = useState(TodoFilters.ALL.toString());
 
@@ -86,7 +87,10 @@ const Todos = (): JSX.Element => {
 		<DndContext sensors={sensors} onDragEnd={handleDragEnd}>
 			<SortableContext items={todos} strategy={rectSortingStrategy}>
 				<section
-					className={`${STYLE_BASE}container`}
+					className={classNames({
+						[`${STYLE_BASE}container`]: true,
+						[`${STYLE_BASE}dark_mode`]: theme === 'dark',
+					})}
 					data-testid='TODOS_CONTAINER'
 					ref={setNodeRef}
 				>
@@ -96,6 +100,7 @@ const Todos = (): JSX.Element => {
 								key={uuidv4()}
 								todo={todo}
 								completeTodo={completeTodo}
+								theme={theme}
 							/>
 						);
 					})}
