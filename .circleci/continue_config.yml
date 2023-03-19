@@ -56,7 +56,7 @@ jobs:
           main-branch-name: master
           workflow-name: nx-pipeline
       - run: cd todo-app/ && node --version
-      - run: npx nx affected --base=$NX_BASE --head=HEAD --target=lint
+      - run: cd todo-app/ && npx nx affected --base=$NX_BASE --head=HEAD --target=lint
   tests:
     working_directory: ~/front-end-mentor
     docker:
