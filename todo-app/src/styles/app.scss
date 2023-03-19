@@ -21,17 +21,26 @@ html {
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 	background-position: top center;
+
+	&.dark_mode {
+		background-color: $app-bg-color-dark;
+	}
 }
 
 .APP_container {
 	@include mixins.flex(column, flex-start, center);
-	width: $container-width;
+	width: 100vw;
+	height: 100vh;
 	margin-right: $margin-right;
 	margin-left: $margin-left;
 	font-family: $font-family;
 	font-style: $font-style;
-	height: 100vh;
 
-	&.dark_mode {
+	&.APP_dark_mode {
+		background-image: url('src/assets/images/bg-desktop-dark.jpg');
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: top center;
+		background-color: $app-bg-color-dark;
 	}
 }

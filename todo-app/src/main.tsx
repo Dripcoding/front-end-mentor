@@ -2,6 +2,7 @@ import React, { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import axe from '@axe-core/react';
 
+import { TodoProvider } from 'context/context';
 import App from './app/app';
 
 if (process.env.NODE_ENV !== 'production') {
@@ -14,6 +15,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
 	<StrictMode>
-		<App />
+		<TodoProvider>
+			<App />
+		</TodoProvider>
 	</StrictMode>
 );

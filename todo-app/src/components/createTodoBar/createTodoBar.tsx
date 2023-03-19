@@ -34,13 +34,16 @@ const CreateTodoBar = (): JSX.Element => {
 				<div
 					className={classNames({
 						[`${STYLE_BASE}btn`]: true,
-						[`${STYLE_BASE}dark_mode`]: true,
+						[`${STYLE_BASE}dark_mode`]: theme === 'dark',
 					})}
 					data-testid='CREATE_TODO_BAR_BTN'
 				></div>
 			</div>
 			<form onSubmit={handleSubmit} data-testid='CREATE_TODO_BAR_FORM'>
 				<input
+					className={classNames({
+						[`${STYLE_BASE}dark_mode`]: theme === 'dark',
+					})}
 					type='text'
 					placeholder='Create a todo...'
 					data-testid='CREATE_TODO_BAR_INPUT'

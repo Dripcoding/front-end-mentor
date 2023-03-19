@@ -5,7 +5,7 @@ section.CREATE_TODO_BAR_container {
 	@include mixins.flex(row, flex-start, center);
 	border-radius: 5px;
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-	width: 100%;
+	width: 540px;
 	height: 64px;
 	padding: 20px 312px 20px 24px;
 	background-color: #fff;
@@ -38,8 +38,14 @@ section.CREATE_TODO_BAR_container {
 		color: $secondary-font-color-light;
 		caret-color: $cursor-primary-color;
 		font-size: 18px;
+		font-family: $font-family;
+		font-style: $font-style;
 		line-height: $secondary-font-line-height;
 		width: 156px;
 		height: 24px;
+
+		&.CREATE_TODO_BAR_dark_mode {
+			color: $secondary-font-color-dark;
+		}
 	}
 }
