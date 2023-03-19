@@ -109,6 +109,7 @@ const Todos = (): JSX.Element => {
 						changeFilter={setFilter}
 						filter={filter}
 						clearCompleted={clearCompleted}
+						theme={theme}
 					/>
 				</section>
 			</SortableContext>
