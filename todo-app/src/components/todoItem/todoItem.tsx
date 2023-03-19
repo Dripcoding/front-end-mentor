@@ -41,7 +41,7 @@ const TodoItem = ({ todo, completeTodo }: ITodoItemProps): JSX.Element => {
 			{...listeners}
 		>
 			<div className={`${STYLE_BASE}radio_btn_container`}>
-				<div
+				<button
 					className={classNames({
 						[`${STYLE_BASE}radio_btn`]: true,
 						[`${STYLE_BASE}radio_btn_pressed`]: todo.completed,
@@ -56,7 +56,7 @@ const TodoItem = ({ todo, completeTodo }: ITodoItemProps): JSX.Element => {
 							data-testid='TODO_ITEM_CHECK_MARK'
 						/>
 					)}
-				</div>
+				</button>
 			</div>
 			<span
 				className={classNames({

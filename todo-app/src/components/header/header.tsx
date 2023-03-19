@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import '../../styles/header.scss';
 import { ReactComponent as MoonLogo } from '../../assets/images/icon-moon.svg';
 import { ReactComponent as SunLogo } from '../../assets/images/icon-sun.svg';

@@ -30,10 +30,13 @@ const CreateTodoBar = (): JSX.Element => {
 			})}
 			data-testid='CREATE_TODO_BAR_CONTAINER'
 		>
-			<div className={`${STYLE_BASE}radio_btn_container`}>
+			<div className={`${STYLE_BASE}btn_container`}>
 				<div
-					className={`${STYLE_BASE}radio_btn`}
-					data-testid='CREATE_TODO_BAR_RADIO_BTN'
+					className={classNames({
+						[`${STYLE_BASE}btn`]: true,
+						[`${STYLE_BASE}dark_mode`]: true,
+					})}
+					data-testid='CREATE_TODO_BAR_BTN'
 				></div>
 			</div>
 			<form onSubmit={handleSubmit} data-testid='CREATE_TODO_BAR_FORM'>

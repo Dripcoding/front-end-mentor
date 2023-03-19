@@ -1,3 +1,14 @@
 {
-    "jest.jestCommandLine": "npm test --"
+	"jest.jestCommandLine": "npm test --",
+	"eslint.lintTask.enable": true,
+	"eslint.lintTask.options": "--plugin eslint-plugin-jsx-a11y",
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"html",
+		"typescriptreact",
+		"css"
+	],
+	"eslint.run": "onSave",
+	"eslint.nodePath": "/home/juiced/front-end-mentor/todo-app/node_modules"
 }
