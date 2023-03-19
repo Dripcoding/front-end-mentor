@@ -29,6 +29,23 @@ describe('App', () => {
 	});
 
 	describe('integration tests', () => {
+		it('should allow user to toggle theme', async () => {
+			const user = userEvent.setup();
+			render(renderAppWithProvider());
+
+			await user.click(screen.getByTitle('Moon Icon'));
+
+			await waitFor(() => {
+				expect(screen.getByTitle('Sun Icon')).toBeInTheDocument();
+			});
+
+			await user.click(screen.getByTitle('Sun Icon'));
+
+			await waitFor(() => {
+				expect(screen.getByTitle('Moon Icon')).toBeInTheDocument();
+			});
+		});
+
 		it('should allow user to add new todo', async () => {
 			const user = userEvent.setup();
 			render(renderAppWithProvider());

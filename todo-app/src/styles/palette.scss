@@ -1,16 +1,17 @@
-// DESKTOP 
+// DESKTOP
 $container-width: 540px;
 $container-min-height: 439px;
 $margin-right: 450px;
 $margin-left: 450px;
 $font-family: 'Josefin Sans';
 $font-style: normal;
+$bg-color-dark: #393a4b;
 
 // DESKTOP HEADER
 $header-font-weight: 700;
 $header-line-height: 40px;
 $header-font-size: 40px;
-$header-font-color: #FFFFFF;
+$header-font-color: #ffffff;
 $header-letter-spacing: 15px;
 $header-margin-top: 70px;
 
@@ -18,10 +19,10 @@ $header-margin-top: 70px;
 $text-font-weight: 400;
 $text-line-height: 18px;
 $text-font-size: 18px;
-$text-primary-font-color-light: #494C6B;
-$text-completed-font-color-light: #D1D2DA;
-$text-primary-font-color-dark: #C8CBE7;
-$text-completed-font-color-dark: #4D5067;
+$text-primary-font-color-light: #494c6b;
+$text-completed-font-color-light: #d1d2da;
+$text-primary-font-color-dark: #c8cbe7;
+$text-completed-font-color-dark: #4d5067;
 
 // DESKTOP PLACEHOLDER TEXT
 $placeholder-font-weight: 400;
@@ -33,13 +34,13 @@ $secondary-font-weight: 700;
 $secondary-font-weight-400: 400;
 $secondary-font-size: 14px;
 $secondary-font-line-height: 14px;
-$secondary-font-color-light: #9495A5;
-$secondary-selected-font-color: #3A7CFD;
-$secondary-font-color-dark: #5B5E7E;
-$secondary-hover-font-color-light: #494C6B;
+$secondary-font-color-light: #9495a5;
+$secondary-selected-font-color: #3a7cfd;
+$secondary-font-color-dark: #5b5e7e;
+$secondary-hover-font-color-light: #494c6b;
 $secondary-hover-font-weight: 700;
 $secondary-font-color-dark: #767992;
-$secondary-hover-font-color-dark: #E3E4F1;
+$secondary-hover-font-color-dark: #e3e4f1;
 
 // DESKTOP FOOTER
 $footer-width: 179px;
@@ -69,18 +70,18 @@ $mobile-placeholder-font-size: 12px;
 $mobile-secondary-font-weight: 400;
 $mobile-secondary-font-size: 12px;
 $mobile-secondary-font-line-height: 12px;
-$mobile-secondary-font-color-light: #9495A5;
-$mobile-secondary-selected-font-color: #3A7CFD;
-$mobile-secondary-font-color-dark: #5B5E7E;
-$mobile-secondary-hover-font-color-light: #494C6B;
+$mobile-secondary-font-color-light: #9495a5;
+$mobile-secondary-selected-font-color: #3a7cfd;
+$mobile-secondary-font-color-dark: #5b5e7e;
+$mobile-secondary-hover-font-color-light: #494c6b;
 $mobile-secondary-hover-font-weight: 700;
 $mobile-secondary-font-color-dark: #767992;
-$mobile-secondary-hover-font-color-dark: #E3E4F1;
+$mobile-secondary-hover-font-color-dark: #e3e4f1;
 
 // MOBILE TOGGLES
 $mobile-toggle-font-weight: 700;
 $mobile-toggle-font-size: 14px;
 $mobile-toggle-line-height: 14px;
 
-$cursor-primary-color: #3A7CFD;
-$divider-color: #E3E4F1;
+$cursor-primary-color: #3a7cfd;
+$divider-color: #e3e4f1;
