@@ -160,4 +160,4 @@ jobs:
       - run: cd todo-app/ && yarn global add vercel@latest
       - run: cd todo-app/ && vercel pull --yes --environment=preview --token=${VERCEL_TOKEN}
       - run: cd todo-app/ && vercel build --token=${VERCEL_TOKEN}
-      - run: cd todo-app/ && vercel deploy --prebuilt --toke=${VERCEL_TOKEN}
+      - run: cd todo-app/ && vercel deploy --prebuilt --token=${VERCEL_TOKEN}
