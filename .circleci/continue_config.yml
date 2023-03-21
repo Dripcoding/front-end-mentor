@@ -162,4 +162,6 @@ jobs:
       - run: cd todo-app/ && node --version
       - run: cd todo-app/ && yarn nx affected --target=build --base=master --head=HEAD
       - run: yarn global add vercel@latest
-      - run: cd todo-app/ && vercel pull --yes --environment=preview --token=${VERCEL_TOKEN} && vercel build --token=${VERCEL_TOKEN} && vercel deploy --prebuilt --token=${VERCEL_TOKEN}
+      - run: vercel pull --yes --environment=preview --token=${VERCEL_TOKEN} --debug
+      - run: vercel build --token=${VERCEL_TOKEN} --debug --cwd=./todo-app/
+      - run: vercel deploy --prebuilt --token=${VERCEL_TOKEN} --debug --cwd=./todo-app/
