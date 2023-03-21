@@ -153,7 +153,7 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: cd todo-app/ && yarn cache clean && yarn rm yarn.lock && yarn install 
+      - run: cd todo-app/ && yarn cache clean && rm yarn.lock && yarn install 
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
