@@ -38,6 +38,12 @@ workflows:
             - tests
             - build
             - lighthouse-mobile
+      - vercel-preview:
+          requires:
+            - lint
+            - tests
+            - lighthouse-mobile
+            - lighthouse-desktop
 
 jobs:
   lint:
@@ -56,7 +62,7 @@ jobs:
           main-branch-name: master
           workflow-name: nx-pipeline
       - run: cd todo-app/ && node --version
-      - run: npx nx affected --base=$NX_BASE --head=HEAD --target=lint
+      - run: cd todo-app/ && npx nx affected --base=$NX_BASE --head=HEAD --target=lint
   tests:
     working_directory: ~/front-end-mentor
     docker:
@@ -93,7 +99,7 @@ jobs:
       - run: cd todo-app/ && node --version
       - run: cd todo-app/ && yarn global add @lhci/cli
       - run: cd todo-app/ && yarn nx affected --target=build --base=master --head=HEAD 
-      - run: lhci autorun --config=./lighthouse-mobile.js --collect.staticDistDir=./todo-app/dist/todo-app- --collect.isSinglePageApplication=true
+      - run: cd todo-app/ && lhci autorun --config=./lighthouse-mobile.js --collect.staticDistDir=./dist/todo-app-/ --collect.isSinglePageApplication=true
       - store_artifacts:
           path: /tmp/lighthouseci
           destination: lighthouse-mobile-report
@@ -117,7 +123,7 @@ jobs:
       - run: cd todo-app/ && node --version
       - run: cd todo-app/ && yarn global add @lhci/cli
       - run: cd todo-app/ && yarn nx affected --target=build --base=master --head=HEAD 
-      - run: lhci autorun --config=./lighthouse-desktop.js --collect.staticDistDir=./todo-app/dist/todo-app- --collect.isSinglePageApplication=true
+      - run: cd todo-app/ && lhci autorun --config=./lighthouse-desktop.js --collect.staticDistDir=./dist/todo-app-/ --collect.isSinglePageApplication=true
       - store_artifacts:
           path: /tmp/lighthouseci
           destination: lighthouse-desktop-report
@@ -136,3 +142,22 @@ jobs:
           workflow-name: nx-pipeline
       - run: cd todo-app/ &&  node --version
       - run: cd todo-app/ && yarn nx affected --target=build --base=master --head=HEAD
+  vercel-preview:
+    working_directory: ~/front-end-mentor
+    docker:
+      - image: cimg/node:18.15.0-browsers
+    steps:
+      - checkout:
+          path: ~/front-end-mentor
+      - run: cd todo-app/ && yarn install --froze-lockfile
+      - nx/set-shas:
+          allow-on-hold-workflow: true
+          error-on-no-successful-workflow: true
+          main-branch-name: master
+          workflow-name: nx-pipeline
+      - run: cd todo-app/ &&  node --version
+      - run: cd todo-app/ && yarn nx affected --target=build --base=master --head=HEAD
+      - run: cd todo-app/ && yarn global add vercel@latest
+      - run: cd todo-app/ && vercel pull --yes --environment=preview --token=${VERCEL_TOKEN}
+      - run: cd todo-app/ && vercel build --token=${VERCEL_TOKEN}
+      - run: cd todo-app/ && vercel deploy --prebuilt --toke=${VERCEL_TOKEN}
