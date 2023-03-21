@@ -21,7 +21,7 @@ const Header = (): JSX.Element => {
 			data-testid='TODO_HEADER_CONTAINER'
 		>
 			<h1>TODO</h1>
-			<div onClick={handleChangeTheme}>{icon}</div>
+			<button onClick={handleChangeTheme}>{icon}</button>
 		</section>
 	);
 };
