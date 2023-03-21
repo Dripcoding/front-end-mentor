@@ -99,7 +99,7 @@ jobs:
       - run: cd todo-app/ && node --version
       - run: cd todo-app/ && yarn global add @lhci/cli
       - run: cd todo-app/ && yarn nx affected --target=build --base=master --head=HEAD 
-      - run: cd todo-app/ && lhci autorun --config=./lighthouse-mobile.js --collect.staticDistDir=./dist/todo-app-/ --collect.isSinglePageApplication=true
+      - run: cd todo-app/ && lhci autorun --config=../lighthouse-mobile.js --collect.staticDistDir=./dist/todo-app-/ --collect.isSinglePageApplication=true
       - store_artifacts:
           path: /tmp/lighthouseci
           destination: lighthouse-mobile-report
@@ -123,7 +123,7 @@ jobs:
       - run: cd todo-app/ && node --version
       - run: cd todo-app/ && yarn global add @lhci/cli
       - run: cd todo-app/ && yarn nx affected --target=build --base=master --head=HEAD 
-      - run: cd todo-app/ && lhci autorun --config=./lighthouse-desktop.js --collect.staticDistDir=./dist/todo-app-/ --collect.isSinglePageApplication=true
+      - run: cd todo-app/ && lhci autorun --config=../lighthouse-desktop.js --collect.staticDistDir=./dist/todo-app-/ --collect.isSinglePageApplication=true
       - store_artifacts:
           path: /tmp/lighthouseci
           destination: lighthouse-desktop-report
