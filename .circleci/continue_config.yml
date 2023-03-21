@@ -149,7 +149,7 @@ jobs:
   vercel-preview:
     working_directory: ~/front-end-mentor
     docker:
-      - image: cimg/node:18.15.0-browsers
+      - image: cimg/node:18.15.0
     steps:
       - checkout:
           path: ~/front-end-mentor
