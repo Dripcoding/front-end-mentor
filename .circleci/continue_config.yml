@@ -4,6 +4,10 @@ orbs:
   nx: nrwl/nx@1.6.1
   browser-tools: circleci/browser-tools@1.4.1
 
+env:
+  VERCEL_ORG_ID: ${VERCEL_TODO_APP_PROJECT_ID}
+  VERCEL_PROJECT_ID: ${VERCEL_TOKEN}
+
 # the default pipeline parameters, which will be updated according to
 # the results of the path-filtering orb
 parameters:
