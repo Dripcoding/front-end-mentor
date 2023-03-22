@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { CSS } from '@dnd-kit/utilities';
 import { useSortable } from '@dnd-kit/sortable';
 import { ITodoItem } from 'context/context';
+import { ReactComponent as IconCheck } from '../../assets/images/icon-check.svg';
 import '../../styles/todoItem.scss';
 
 const STYLE_BASE = 'TODO_ITEM_';
@@ -58,13 +59,7 @@ const TodoItem = ({
 					data-testid='TODO_ITEM_BTN'
 					onClick={handleClick}
 				>
-					{todo.completed && (
-						<img
-							src='/src/assets/images/icon-check.svg'
-							alt='todo check mark'
-							data-testid='TODO_ITEM_CHECK_MARK'
-						/>
-					)}
+					{todo.completed && <IconCheck role='img' />}
 				</button>
 			</div>
 			<span
