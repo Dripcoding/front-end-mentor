@@ -60,7 +60,7 @@ const TodoItem = ({
 				>
 					{todo.completed && (
 						<img
-							src='src/assets/images/icon-check.svg'
+							src='/src/assets/images/icon-check.svg'
 							alt='todo check mark'
 							data-testid='TODO_ITEM_CHECK_MARK'
 						/>

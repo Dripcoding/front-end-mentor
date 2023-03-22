@@ -17,7 +17,7 @@ html {
 
 #root {
 	@include mixins.flex(column, center, center);
-	background-image: url('src/assets/images/bg-desktop-light.jpg');
+	background-image: url('/src/assets/images/bg-desktop-light.jpg');
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 	background-position: top center;
@@ -37,7 +37,7 @@ html {
 	font-style: $font-style;
 
 	&.APP_dark_mode {
-		background-image: url('src/assets/images/bg-desktop-dark.jpg');
+		background-image: url('/src/assets/images/bg-desktop-dark.jpg');
 		background-repeat: no-repeat;
 		background-size: 100% auto;
 		background-position: top center;
