@@ -16,7 +16,7 @@ import {
 	sortableKeyboardCoordinates,
 	arrayMove as dndKitArrayMove,
 } from '@dnd-kit/sortable';
-import { ITodoItem, useTodo } from 'context/context';
+import { ITodoItem, useTodo } from 'context/todoContext';
 import TodoItem from '../todoItem/todoItem';
 import TodoControls from '../todoControls/todoControls';
 import '../../styles/todos.scss';

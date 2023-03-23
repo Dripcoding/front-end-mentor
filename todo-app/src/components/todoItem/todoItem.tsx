@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { CSS } from '@dnd-kit/utilities';
 import { useSortable } from '@dnd-kit/sortable';
-import { ITodoItem } from 'context/context';
+import { ITodoItem } from 'context/todoContext';
 import { ReactComponent as IconCheck } from '../../assets/images/icon-check.svg';
 import '../../styles/todoItem.scss';
 

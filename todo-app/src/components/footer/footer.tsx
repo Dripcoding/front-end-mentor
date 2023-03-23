@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useTodo } from 'context/context';
+import { useTodo } from 'context/todoContext';
 import '../../styles/footer.scss';
 
 const STYLE_BASE = 'FOOTER_';

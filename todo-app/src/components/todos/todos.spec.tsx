@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { v4 as uuidv4 } from 'uuid';
-import { TodoProvider } from 'context/context';
+import { TodoProvider } from 'context/todoContext';
 
 import Todos, { filterStrategy } from './todos';
 

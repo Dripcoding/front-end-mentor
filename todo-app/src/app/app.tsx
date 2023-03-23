@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useTodo } from '../context/context';
+import { useTodo } from '../context/todoContext';
 import Header from '../components/header/header';
 import CreateTodoBar from 'components/createTodoBar/createTodoBar';
 import Todos from '../components/todos/todos';

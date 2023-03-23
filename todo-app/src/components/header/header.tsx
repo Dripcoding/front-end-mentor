@@ -1,7 +1,7 @@
 import '../../styles/header.scss';
 import { ReactComponent as MoonLogo } from '../../assets/images/icon-moon.svg';
 import { ReactComponent as SunLogo } from '../../assets/images/icon-sun.svg';
-import { useTodo } from 'context/context';
+import { useTodo } from 'context/todoContext';
 
 const STYLE_BASE = 'HEADER_';
 

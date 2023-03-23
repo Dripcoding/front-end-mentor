@@ -1,7 +1,7 @@
 import React, { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 
-import { TodoProvider } from 'context/context';
+import { TodoProvider } from 'context/todoContext';
 import App from './app/app';
 
 export const reportAccessibility = async (
