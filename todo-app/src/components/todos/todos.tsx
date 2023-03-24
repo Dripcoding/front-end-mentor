@@ -99,8 +99,7 @@ const Todos = (): JSX.Element => {
 					{filteredTodos.map((todo) => {
 						return (
 							<TodoItem
-								// key={todo.id}
-								key={uuidv4()}
+								key={todo.id}
 								todo={todo}
 								completeTodo={completeTodo}
 								theme={theme}
