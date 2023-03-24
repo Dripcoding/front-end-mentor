@@ -1,12 +1,12 @@
 import '../../styles/header.scss';
 import { ReactComponent as MoonLogo } from '../../assets/images/icon-moon.svg';
 import { ReactComponent as SunLogo } from '../../assets/images/icon-sun.svg';
-import { useTodo } from 'context/todoContext';
+import { useTheme } from 'context/themeContext';
 
 const STYLE_BASE = 'HEADER_';
 
 const Header = (): JSX.Element => {
-	const { theme, changeTheme } = useTodo();
+	const { theme, changeTheme } = useTheme();
 
 	const handleChangeTheme = () => {
 		changeTheme();
