@@ -1,15 +1,15 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { TodoProvider } from 'context/todoContext';
+import { ThemeProvider } from 'context/themeContext';
 
 import Footer from './footer';
 
 describe('Footer', () => {
 	it('should render correctly', () => {
 		render(
-			<TodoProvider>
+			<ThemeProvider>
 				<Footer />
-			</TodoProvider>
+			</ThemeProvider>
 		);
 
 		expect(screen.getByTestId('FOOTER')).toBeInTheDocument();
