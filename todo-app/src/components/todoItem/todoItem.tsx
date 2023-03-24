@@ -57,6 +57,7 @@ const TodoItem = ({
 						[`${STYLE_BASE}btn_dark_mode`]: theme === 'dark',
 					})}
 					data-testid='TODO_ITEM_BTN'
+					title='todo check mark'
 					onClick={handleClick}
 				>
 					{todo.completed && <IconCheck role='img' />}
