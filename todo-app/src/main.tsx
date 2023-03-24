@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom/client';
 
 import { TodoProvider } from 'context/todoContext';
 import App from './app/app';
+import { ThemeProvider } from 'context/themeContext';
 
 export const reportAccessibility = async (
 	App: typeof React,
@@ -23,7 +24,9 @@ const root = ReactDOM.createRoot(
 root.render(
 	<StrictMode>
 		<TodoProvider>
-			<App />
+			<ThemeProvider>
+				<App />
+			</ThemeProvider>
 		</TodoProvider>
 	</StrictMode>
 );

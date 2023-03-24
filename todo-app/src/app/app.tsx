@@ -5,11 +5,12 @@ import CreateTodoBar from 'components/createTodoBar/createTodoBar';
 import Todos from '../components/todos/todos';
 import Footer from '../components/footer/footer';
 import '../styles/app.scss';
+import { useTheme } from 'context/themeContext';
 
 const STYLE_BASE = 'APP_';
 
 export const App = (): JSX.Element => {
-	const { theme } = useTodo();
+	const { theme } = useTheme();
 
 	return (
 		<main
