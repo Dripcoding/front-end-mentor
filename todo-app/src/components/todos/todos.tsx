@@ -21,6 +21,7 @@ import TodoItem from '../todoItem/todoItem';
 import TodoControls from '../todoControls/todoControls';
 import '../../styles/todos.scss';
 import { useState } from 'react';
+import { useTheme } from 'context/themeContext';
 
 const STYLE_BASE = 'TODOS_';
 
@@ -37,7 +38,8 @@ export const filterStrategy = {
 };
 
 const Todos = (): JSX.Element => {
-	const { todos, updateTodos, completeTodo, clearCompleted, theme } = useTodo();
+	const { theme } = useTheme();
+	const { todos, updateTodos, completeTodo, clearCompleted } = useTodo();
 	const { setNodeRef } = useDroppable({ id: `${uuidv4()}` });
 	const [filter, setFilter] = useState(TodoFilters.ALL.toString());
 
