@@ -1,8 +1,8 @@
 import React, { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 
-import { TodoProvider } from 'context/context';
 import App from './app/app';
+import { ThemeProvider } from 'context/themeContext';
 
 export const reportAccessibility = async (
 	App: typeof React,
@@ -22,9 +22,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
 	<StrictMode>
-		<TodoProvider>
+		<ThemeProvider>
 			<App />
-		</TodoProvider>
+		</ThemeProvider>
 	</StrictMode>
 );
 

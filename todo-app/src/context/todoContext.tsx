@@ -15,12 +15,10 @@ export interface ITodoItem {
 
 export interface ITodoState {
 	todos: ITodoItem[];
-	theme: string;
 	addTodo: (newTodo: ITodoItem) => void;
 	completeTodo: (id: string) => void;
 	updateTodos: (todos: ITodoItem[]) => void;
 	clearCompleted: () => void;
-	changeTheme: () => void;
 }
 
 const initialState = {
@@ -40,7 +38,6 @@ const initialState = {
 			completed: false,
 		},
 	],
-	theme: 'light',
 	addTodo: (newTodo: ITodoItem) => {
 		return;
 	},
@@ -72,7 +69,6 @@ export const useTodo = () => {
 
 export const TodoProvider = ({ children }): JSX.Element => {
 	const [todos, setTodos] = useState(initialState.todos);
-	const [theme, setTheme] = useState(initialState.theme);
 
 	const addTodo = useCallback(
 		(newTodo: ITodoItem) => {
@@ -110,29 +106,15 @@ export const TodoProvider = ({ children }): JSX.Element => {
 		});
 	}, [setTodos]);
 
-	const changeTheme = useCallback(() => {
-		setTheme(theme === 'light' ? 'dark' : 'light');
-	}, [setTheme, theme]);
-
 	const values = useMemo(
 		() => ({
 			todos,
-			theme,
 			addTodo,
 			completeTodo,
 			updateTodos,
 			clearCompleted,
-			changeTheme,
 		}),
-		[
-			todos,
-			theme,
-			addTodo,
-			completeTodo,
-			updateTodos,
-			clearCompleted,
-			changeTheme,
-		]
+		[todos, addTodo, completeTodo, updateTodos, clearCompleted]
 	);
 
 	return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>;

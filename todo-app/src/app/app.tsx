@@ -1,15 +1,16 @@
 import classNames from 'classnames';
-import { useTodo } from '../context/context';
+import { TodoProvider } from '../context/todoContext';
 import Header from '../components/header/header';
 import CreateTodoBar from 'components/createTodoBar/createTodoBar';
 import Todos from '../components/todos/todos';
 import Footer from '../components/footer/footer';
 import '../styles/app.scss';
+import { useTheme } from 'context/themeContext';
 
 const STYLE_BASE = 'APP_';
 
 export const App = (): JSX.Element => {
-	const { theme } = useTodo();
+	const { theme } = useTheme();
 
 	return (
 		<main
@@ -19,8 +20,10 @@ export const App = (): JSX.Element => {
 			})}
 		>
 			<Header />
-			<CreateTodoBar />
-			<Todos />
+			<TodoProvider>
+				<CreateTodoBar />
+				<Todos />
+			</TodoProvider>
 			<Footer />
 		</main>
 	);

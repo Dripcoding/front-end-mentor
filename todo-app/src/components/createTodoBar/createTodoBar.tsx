@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import classNames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
-import { useTodo } from 'context/context';
+import { useTodo } from 'context/todoContext';
 import '../../styles/createTodoBar.scss';
 
 const STYLE_BASE = 'CREATE_TODO_BAR_';

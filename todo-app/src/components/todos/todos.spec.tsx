@@ -1,15 +1,18 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { v4 as uuidv4 } from 'uuid';
-import { TodoProvider } from 'context/context';
+import { TodoProvider } from 'context/todoContext';
 
 import Todos, { filterStrategy } from './todos';
+import { ThemeProvider } from 'context/themeContext';
 
 const renderTodosWithProvider = () => {
 	return (
-		<TodoProvider>
-			<Todos />
-		</TodoProvider>
+		<ThemeProvider>
+			<TodoProvider>
+				<Todos />
+			</TodoProvider>
+		</ThemeProvider>
 	);
 };
 

@@ -1,14 +1,14 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { TodoProvider } from 'context/context';
+import { ThemeProvider } from 'context/themeContext';
 
 import App from './app';
 
 const renderAppWithProvider = () => {
 	return (
-		<TodoProvider>
+		<ThemeProvider>
 			<App />
-		</TodoProvider>
+		</ThemeProvider>
 	);
 };
 

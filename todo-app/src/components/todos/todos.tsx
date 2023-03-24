@@ -16,11 +16,12 @@ import {
 	sortableKeyboardCoordinates,
 	arrayMove as dndKitArrayMove,
 } from '@dnd-kit/sortable';
-import { ITodoItem, useTodo } from 'context/context';
+import { ITodoItem, useTodo } from 'context/todoContext';
 import TodoItem from '../todoItem/todoItem';
 import TodoControls from '../todoControls/todoControls';
 import '../../styles/todos.scss';
 import { useState } from 'react';
+import { useTheme } from 'context/themeContext';
 
 const STYLE_BASE = 'TODOS_';
 
@@ -37,7 +38,8 @@ export const filterStrategy = {
 };
 
 const Todos = (): JSX.Element => {
-	const { todos, updateTodos, completeTodo, clearCompleted, theme } = useTodo();
+	const { theme } = useTheme();
+	const { todos, updateTodos, completeTodo, clearCompleted } = useTodo();
 	const { setNodeRef } = useDroppable({ id: `${uuidv4()}` });
 	const [filter, setFilter] = useState(TodoFilters.ALL.toString());
 
@@ -97,8 +99,7 @@ const Todos = (): JSX.Element => {
 					{filteredTodos.map((todo) => {
 						return (
 							<TodoItem
-								// key={todo.id}
-								key={uuidv4()}
+								key={todo.id}
 								todo={todo}
 								completeTodo={completeTodo}
 								theme={theme}

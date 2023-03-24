@@ -1,14 +1,14 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { TodoProvider } from 'context/context';
+import { ThemeProvider } from 'context/themeContext';
 
 import Header from './header';
 
 const renderHeaderWithProvider = () => {
 	return (
-		<TodoProvider>
+		<ThemeProvider>
 			<Header />
-		</TodoProvider>
+		</ThemeProvider>
 	);
 };
 

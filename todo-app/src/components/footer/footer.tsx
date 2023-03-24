@@ -1,11 +1,11 @@
 import classNames from 'classnames';
-import { useTodo } from 'context/context';
+import { useTheme } from 'context/themeContext';
 import '../../styles/footer.scss';
 
 const STYLE_BASE = 'FOOTER_';
 
 const Footer = (): JSX.Element => {
-	const { theme } = useTodo();
+	const { theme } = useTheme();
 
 	return (
 		<footer className={`${STYLE_BASE}container`} data-testid='FOOTER'>
