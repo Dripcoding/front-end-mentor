@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useTodo } from '../context/todoContext';
+import { TodoProvider } from '../context/todoContext';
 import Header from '../components/header/header';
 import CreateTodoBar from 'components/createTodoBar/createTodoBar';
 import Todos from '../components/todos/todos';
@@ -20,8 +20,10 @@ export const App = (): JSX.Element => {
 			})}
 		>
 			<Header />
-			<CreateTodoBar />
-			<Todos />
+			<TodoProvider>
+				<CreateTodoBar />
+				<Todos />
+			</TodoProvider>
 			<Footer />
 		</main>
 	);
