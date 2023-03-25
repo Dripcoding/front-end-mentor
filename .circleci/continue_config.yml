@@ -73,11 +73,11 @@ jobs:
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-{{ checksum "todo-app/yarn.lock" }}
       - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder todo-app/.cache/yarn
       - save_cache:
           name: Save Yarn Package Cache
-          key: yarn-packges-{{ checksum "yarn.lock" }}
+          key: yarn-packges-{{ checksum "todo-app/yarn.lock" }}
           paths:
             - .yarn/cache
             - .yarn/unplugged
@@ -100,11 +100,11 @@ jobs:
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-{{ checksum "todo-app/yarn.lock" }}
       - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder todo-app/.cache/yarn
       - save_cache:
           name: Save Yarn Package Cache
-          key: yarn-packges-{{ checksum "yarn.lock" }}
+          key: yarn-packges-{{ checksum "todo-app/yarn.lock" }}
           paths:
             - .yarn/cache
             - .yarn/unplugged
@@ -126,11 +126,11 @@ jobs:
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-{{ checksum "todo-app/yarn.lock" }}
       - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder todo-app/.cache/yarn
       - save_cache:
           name: Save Yarn Package Cache
-          key: yarn-packges-{{ checksum "yarn.lock" }}
+          key: yarn-packges-{{ checksum "todo-app/yarn.lock" }}
           paths:
             - .yarn/cache
             - .yarn/unplugged
@@ -160,11 +160,11 @@ jobs:
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-{{ checksum "todo-app/yarn.lock" }}
       - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder todo-app/.cache/yarn
       - save_cache:
           name: Save Yarn Package Cache
-          key: yarn-packges-{{ checksum "yarn.lock" }}
+          key: yarn-packges-{{ checksum "todo-app/yarn.lock" }}
           paths:
             - .yarn/cache
             - .yarn/unplugged
@@ -192,11 +192,11 @@ jobs:
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-{{ checksum "todo-app/yarn.lock" }}
       - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder todo-app/.cache/yarn
       - save_cache:
           name: Save Yarn Package Cache
-          key: yarn-packges-{{ checksum "yarn.lock" }}
+          key: yarn-packges-{{ checksum "todo-app/yarn.lock" }}
           paths:
             - .yarn/cache
             - .yarn/unplugged
@@ -217,11 +217,11 @@ jobs:
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-{{ checksum "todo-app/yarn.lock" }}
       - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder todo-app/.cache/yarn
       - save_cache:
           name: Save Yarn Package Cache
-          key: yarn-packges-{{ checksum "yarn.lock" }}
+          key: yarn-packges-{{ checksum "todo-app/yarn.lock" }}
           paths:
             - .yarn/cache
             - .yarn/unplugged
@@ -246,11 +246,11 @@ jobs:
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-{{ checksum "todo-app/yarn.lock" }}
       - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder todo-app/.cache/yarn
       - save_cache:
           name: Save Yarn Package Cache
-          key: yarn-packges-{{ checksum "yarn.lock" }}
+          key: yarn-packges-{{ checksum "todo-app/yarn.lock" }}
           paths:
             - .yarn/cache
             - .yarn/unplugged
