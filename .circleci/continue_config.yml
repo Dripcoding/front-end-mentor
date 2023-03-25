@@ -74,7 +74,7 @@ jobs:
           name: Restore Yarn Package Cache
           keys:
             - yarn-packages-{{ checksum "todo-app/yarn.lock" }}
-      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder todo-app/.cache/yarn
+      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder .cache/yarn
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "todo-app/yarn.lock" }}
@@ -101,7 +101,7 @@ jobs:
           name: Restore Yarn Package Cache
           keys:
             - yarn-packages-{{ checksum "todo-app/yarn.lock" }}
-      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder todo-app/.cache/yarn
+      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder .cache/yarn
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "todo-app/yarn.lock" }}
@@ -127,7 +127,7 @@ jobs:
           name: Restore Yarn Package Cache
           keys:
             - yarn-packages-{{ checksum "todo-app/yarn.lock" }}
-      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder todo-app/.cache/yarn
+      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder .cache/yarn
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "todo-app/yarn.lock" }}
@@ -161,7 +161,7 @@ jobs:
           name: Restore Yarn Package Cache
           keys:
             - yarn-packages-{{ checksum "todo-app/yarn.lock" }}
-      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder todo-app/.cache/yarn
+      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder .cache/yarn
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "todo-app/yarn.lock" }}
@@ -193,7 +193,7 @@ jobs:
           name: Restore Yarn Package Cache
           keys:
             - yarn-packages-{{ checksum "todo-app/yarn.lock" }}
-      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder todo-app/.cache/yarn
+      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder .cache/yarn
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "todo-app/yarn.lock" }}
@@ -218,7 +218,7 @@ jobs:
           name: Restore Yarn Package Cache
           keys:
             - yarn-packages-{{ checksum "todo-app/yarn.lock" }}
-      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder todo-app/.cache/yarn
+      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder .cache/yarn
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "todo-app/yarn.lock" }}
@@ -247,7 +247,7 @@ jobs:
           name: Restore Yarn Package Cache
           keys:
             - yarn-packages-{{ checksum "todo-app/yarn.lock" }}
-      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder todo-app/.cache/yarn
+      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder .cache/yarn
       - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packages-{{ checksum "todo-app/yarn.lock" }}
