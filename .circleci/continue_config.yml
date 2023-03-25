@@ -79,8 +79,8 @@ jobs:
           name: Save Yarn Package Cache
           key: yarn-packges-{{ checksum "todo-app/yarn.lock" }}
           paths:
-            - .yarn/cache
-            - .yarn/unplugged
+            - todo-app/.yarn/cache
+            - todo-app/.yarn/unplugged
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
@@ -106,8 +106,8 @@ jobs:
           name: Save Yarn Package Cache
           key: yarn-packges-{{ checksum "todo-app/yarn.lock" }}
           paths:
-            - .yarn/cache
-            - .yarn/unplugged
+            - todo-app/.yarn/cache
+            - todo-app/.yarn/unplugged
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
@@ -132,8 +132,8 @@ jobs:
           name: Save Yarn Package Cache
           key: yarn-packges-{{ checksum "todo-app/yarn.lock" }}
           paths:
-            - .yarn/cache
-            - .yarn/unplugged
+            - todo-app/.yarn/cache
+            - todo-app/.yarn/unplugged
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
@@ -166,8 +166,8 @@ jobs:
           name: Save Yarn Package Cache
           key: yarn-packges-{{ checksum "todo-app/yarn.lock" }}
           paths:
-            - .yarn/cache
-            - .yarn/unplugged
+            - todo-app/.yarn/cache
+            - todo-app/.yarn/unplugged
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
@@ -198,8 +198,8 @@ jobs:
           name: Save Yarn Package Cache
           key: yarn-packges-{{ checksum "todo-app/yarn.lock" }}
           paths:
-            - .yarn/cache
-            - .yarn/unplugged
+            - todo-app/.yarn/cache
+            - todo-app/.yarn/unplugged
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
@@ -223,8 +223,8 @@ jobs:
           name: Save Yarn Package Cache
           key: yarn-packges-{{ checksum "todo-app/yarn.lock" }}
           paths:
-            - .yarn/cache
-            - .yarn/unplugged
+            - todo-app/.yarn/cache
+            - todo-app/.yarn/unplugged
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
@@ -252,8 +252,8 @@ jobs:
           name: Save Yarn Package Cache
           key: yarn-packges-{{ checksum "todo-app/yarn.lock" }}
           paths:
-            - .yarn/cache
-            - .yarn/unplugged
+            - todo-app/.yarn/cache
+            - todo-app/.yarn/unplugged
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
