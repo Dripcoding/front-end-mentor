@@ -70,7 +70,17 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: cd todo-app/ && yarn install --frozen-lockfile
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum 'yarn.lock' }}
+      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - run:
+          name: Save Yarn Package Cache
+          key: yarn-packges-{{ checksum 'yarn.lock' }}
+          paths:
+            - .yarn/cache
+            - .yarn/unplugged
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
@@ -87,7 +97,17 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: cd todo-app/ && yarn install --frozen-lockfile
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum 'yarn.lock' }}
+      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - run:
+          name: Save Yarn Package Cache
+          key: yarn-packges-{{ checksum 'yarn.lock' }}
+          paths:
+            - .yarn/cache
+            - .yarn/unplugged
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
@@ -103,7 +123,17 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: cd todo-app/ && yarn install --frozen-lockfile
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum 'yarn.lock' }}
+      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - run:
+          name: Save Yarn Package Cache
+          key: yarn-packges-{{ checksum 'yarn.lock' }}
+          paths:
+            - .yarn/cache
+            - .yarn/unplugged
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
@@ -127,7 +157,17 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: cd todo-app/ && yarn install --frozen-lockfile
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum 'yarn.lock' }}
+      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - run:
+          name: Save Yarn Package Cache
+          key: yarn-packges-{{ checksum 'yarn.lock' }}
+          paths:
+            - .yarn/cache
+            - .yarn/unplugged
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
@@ -149,7 +189,17 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: cd todo-app/ && yarn install --frozen-lockfile
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum 'yarn.lock' }}
+      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - run:
+          name: Save Yarn Package Cache
+          key: yarn-packges-{{ checksum 'yarn.lock' }}
+          paths:
+            - .yarn/cache
+            - .yarn/unplugged
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
@@ -164,7 +214,17 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: cd todo-app/ && yarn install --frozen-lockfile
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum 'yarn.lock' }}
+      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - run:
+          name: Save Yarn Package Cache
+          key: yarn-packges-{{ checksum 'yarn.lock' }}
+          paths:
+            - .yarn/cache
+            - .yarn/unplugged
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
@@ -183,7 +243,17 @@ jobs:
     steps:
       - checkout:
           path: ~/front-end-mentor
-      - run: cd todo-app/ && yarn install --frozen-lockfile
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum 'yarn.lock' }}
+      - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - run:
+          name: Save Yarn Package Cache
+          key: yarn-packges-{{ checksum 'yarn.lock' }}
+          paths:
+            - .yarn/cache
+            - .yarn/unplugged
       - nx/set-shas:
           allow-on-hold-workflow: true
           error-on-no-successful-workflow: true
