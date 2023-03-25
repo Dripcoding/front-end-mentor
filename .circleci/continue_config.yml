@@ -75,7 +75,7 @@ jobs:
           keys:
             - yarn-packages-{{ checksum 'yarn.lock' }}
       - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
-      - run:
+      - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packges-{{ checksum 'yarn.lock' }}
           paths:
@@ -102,7 +102,7 @@ jobs:
           keys:
             - yarn-packages-{{ checksum 'yarn.lock' }}
       - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
-      - run:
+      - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packges-{{ checksum 'yarn.lock' }}
           paths:
@@ -128,7 +128,7 @@ jobs:
           keys:
             - yarn-packages-{{ checksum 'yarn.lock' }}
       - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
-      - run:
+      - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packges-{{ checksum 'yarn.lock' }}
           paths:
@@ -162,7 +162,7 @@ jobs:
           keys:
             - yarn-packages-{{ checksum 'yarn.lock' }}
       - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
-      - run:
+      - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packges-{{ checksum 'yarn.lock' }}
           paths:
@@ -194,7 +194,7 @@ jobs:
           keys:
             - yarn-packages-{{ checksum 'yarn.lock' }}
       - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
-      - run:
+      - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packges-{{ checksum 'yarn.lock' }}
           paths:
@@ -219,7 +219,7 @@ jobs:
           keys:
             - yarn-packages-{{ checksum 'yarn.lock' }}
       - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
-      - run:
+      - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packges-{{ checksum 'yarn.lock' }}
           paths:
@@ -248,7 +248,7 @@ jobs:
           keys:
             - yarn-packages-{{ checksum 'yarn.lock' }}
       - run: cd todo-app/ && yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
-      - run:
+      - save_cache:
           name: Save Yarn Package Cache
           key: yarn-packges-{{ checksum 'yarn.lock' }}
           paths:
